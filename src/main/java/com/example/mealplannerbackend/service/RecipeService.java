@@ -102,6 +102,16 @@ public class RecipeService {
         return convertToDto(savedRecipe);
     }
 
+    public void updateRating(Long id){
+        Recipe existingRecipe = recipeRepository.findById(id)
+                .orElseThrow(() -> new RecipeNotFoundException("Recipe with id " + id + " not found"));
+        List<Review> reviews = existingRecipe.getReviews();
+        int sumOfRatings = reviews.stream().mapToInt(Review::getRating).sum();
+        existingRecipe.setRating((double) sumOfRatings / reviews.size());
+        recipeRepository.save(existingRecipe);
+
+    }
+
 
     public void deleteRecipe(Long id) {
         recipeRepository.deleteById(id);

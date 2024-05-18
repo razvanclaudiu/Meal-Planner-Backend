@@ -1,8 +1,5 @@
 package com.example.mealplannerbackend.dto;
 
-import com.example.mealplannerbackend.model.Recipe;
-import com.example.mealplannerbackend.model.User;
-
 public class ReviewDTO {
 
     private Long id;
@@ -36,19 +33,19 @@ public class ReviewDTO {
         this.id = id;
     }
 
-    public Long getUser() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser(Long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Long getRecipe(){
+    public Long getRecipe_id(){
         return recipe_id;
     }
 
-    public void setRecipe(Long recipe_id){
+    public void setRecipe_id(Long recipe_id){
         this.recipe_id = recipe_id;
     }
 

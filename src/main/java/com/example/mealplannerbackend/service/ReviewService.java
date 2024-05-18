@@ -8,8 +8,6 @@ import com.example.mealplannerbackend.model.User;
 import com.example.mealplannerbackend.repository.RecipeRepository;
 import com.example.mealplannerbackend.repository.ReviewRepository;
 import com.example.mealplannerbackend.repository.UserRepository;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +31,11 @@ public class ReviewService {
 
     public List<ReviewDTO> getAllReviews() {
         List<Review> reviews = reviewRepository.findAll();
+        return reviews.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    public List<ReviewDTO> getAllReviewsOfRecipe(Long id) {
+        List<Review> reviews = reviewRepository.getAllByRecipeId(id);
         return reviews.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
@@ -77,8 +80,8 @@ public class ReviewService {
     private ReviewDTO convertToDto(Review review) {
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setId(review.getId());
-        reviewDTO.setUser(review.getUser().getId()); // Change to User ID
-        reviewDTO.setRecipe(review.getRecipe().getId()); // Change to Recipe ID
+        reviewDTO.setUser_id(review.getUser().getId()); // Change to User ID
+        reviewDTO.setRecipe_id(review.getRecipe().getId()); // Change to Recipe ID
         reviewDTO.setDescription(review.getDescription());
         reviewDTO.setRating(review.getRating());
         reviewDTO.setImage(review.getImage());
@@ -88,14 +91,18 @@ public class ReviewService {
     private Review convertToEntity(ReviewDTO reviewDTO) {
         Review review = new Review();
         review.setId(reviewDTO.getId());
-        User user = userRepository.findById(reviewDTO.getUser()).orElse(null);
-        Recipe recipe = recipeRepository.findById(reviewDTO.getRecipe()).orElse(null);
+        User user = userRepository.findById(reviewDTO.getUser_id()).orElse(null);
+        Recipe recipe = recipeRepository.findById(reviewDTO.getRecipe_id()).orElse(null);
+        System.out.println("User:" + user.getId());
         review.setUser(user);
         review.setRecipe(recipe);
         review.setDescription(reviewDTO.getDescription());
-        review.setRating(reviewDTO.getRating());
-        review.setImage(reviewDTO.getImage());
+        review.setRating(reviewDTO.getRating());;
+        Long reviewNumber = reviewRepository.getMaxId();
+        reviewNumber++;
+        review.setImage("review_" + reviewNumber + ".jpeg");
         return review;
     }
+
 
 }

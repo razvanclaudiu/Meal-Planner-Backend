@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -122,8 +124,8 @@ public class UserService {
         user.setId(userDTO.getId());
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-        user.setLevel(userDTO.getLevel());
-        user.setExperience(userDTO.getExperience());
+        user.setLevel(1);
+        user.setExperience(0);
 
         // Assuming reviews, recipes, and awards are managed separately
         List<Review> reviews = reviewRepository.findAllById(userDTO.getReviews_id());
@@ -135,9 +137,9 @@ public class UserService {
         user.setAwards(awards);
 
         user.setName(userDTO.getName());
-        user.setCreationDate(userDTO.getCreationDate());
+        user.setCreationDate(new Date());
         user.setImage(userDTO.getImage());
-        user.setTitle(userDTO.getTitle());
+        user.setTitle("Beginner");
 
         return user;
     }
