@@ -106,10 +106,11 @@ public class RecipeService {
         Recipe existingRecipe = recipeRepository.findById(id)
                 .orElseThrow(() -> new RecipeNotFoundException("Recipe with id " + id + " not found"));
         List<Review> reviews = existingRecipe.getReviews();
-        int sumOfRatings = reviews.stream().mapToInt(Review::getRating).sum();
-        existingRecipe.setRating((double) sumOfRatings / reviews.size());
-        recipeRepository.save(existingRecipe);
-
+        if (reviews.size() >= 5) {
+            int sumOfRatings = reviews.stream().mapToInt(Review::getRating).sum();
+            existingRecipe.setRating((double) sumOfRatings / reviews.size());
+            recipeRepository.save(existingRecipe);
+        }
     }
 
 

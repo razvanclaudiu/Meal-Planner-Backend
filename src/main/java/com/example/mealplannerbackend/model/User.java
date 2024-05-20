@@ -172,4 +172,12 @@ public class User {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public boolean hasAward(String name) {
+        for (Award award : this.awards){
+            if (award.getName().equals(name))
+                return true;
+        }
+        return false;
+    }
 }

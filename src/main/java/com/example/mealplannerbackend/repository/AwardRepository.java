@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AwardRepository extends JpaRepository<Award, Long> {
-    // You can add custom query methods here if needed
+
+    Award getAwardByName(String name);
 }

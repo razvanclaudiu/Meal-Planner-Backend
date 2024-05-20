@@ -2,6 +2,7 @@ package com.example.mealplannerbackend.controller;
 
 import com.example.mealplannerbackend.dto.UserDTO;
 import com.example.mealplannerbackend.model.User;
+import com.example.mealplannerbackend.service.AwardService;
 import com.example.mealplannerbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +17,12 @@ public class UserController {
 
     private final UserService userService;
 
+    private final AwardService awardService;
+
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, AwardService awardService) {
         this.userService = userService;
+        this.awardService = awardService;
     }
 
     @GetMapping
@@ -55,5 +59,12 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/awards/{id}")
+    public ResponseEntity<UserDTO> grantAwardsToUser(@PathVariable("id") Long id) {
+        awardService.checkAndAwardAchievements(id);
+        UserDTO userDTO = userService.getUserById(id);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 }
