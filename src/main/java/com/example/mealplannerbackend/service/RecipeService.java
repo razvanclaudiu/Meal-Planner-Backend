@@ -69,6 +69,8 @@ public class RecipeService {
     public RecipeDTO createRecipe(RecipeDTO recipeDTO) {
         Recipe recipe = convertToEntity(recipeDTO);
         Recipe savedRecipe = recipeRepository.save(recipe);
+        savedRecipe.setImage("recipe_"+savedRecipe.getId()+".jpeg");
+        savedRecipe = recipeRepository.save(savedRecipe);
         return convertToDto(savedRecipe);
     }
 
@@ -109,8 +111,12 @@ public class RecipeService {
         if (reviews.size() >= 5) {
             int sumOfRatings = reviews.stream().mapToInt(Review::getRating).sum();
             existingRecipe.setRating((double) sumOfRatings / reviews.size());
-            recipeRepository.save(existingRecipe);
+
         }
+        else existingRecipe.setRating(0);
+
+
+        recipeRepository.save(existingRecipe);
     }
 
 
@@ -176,9 +182,6 @@ public class RecipeService {
         Recipe recipe = new Recipe();
         recipe.setId(recipeDTO.getId());
         recipe.setTitle(recipeDTO.getTitle());
-        Long recipeNumber = recipeRepository.getMaxId();
-        recipeNumber++;
-        recipe.setImage("recipe_" + recipeNumber + ".jpeg");
         recipe.setMethod(recipeDTO.getMethod());
         recipe.setTimeToCook(recipeDTO.getTimeToCook());
         recipe.setRating(recipeDTO.getRating());

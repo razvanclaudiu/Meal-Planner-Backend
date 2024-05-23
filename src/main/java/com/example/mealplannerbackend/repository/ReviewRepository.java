@@ -14,4 +14,6 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     public Long getMaxId();
 
     List<Review> getAllByRecipeId(Long id);
+
+    List<Review> getAllByUserId(Long id);
 }

@@ -39,6 +39,11 @@ public class ReviewService {
         return reviews.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    public List<ReviewDTO> getAllReviewsOfUser(Long id) {
+        List<Review> reviews = reviewRepository.getAllByUserId(id);
+        return reviews.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
     public ReviewDTO getReviewById(Long id) {
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new ReviewNotFoundException("Review not found with id: " + id));
@@ -48,6 +53,8 @@ public class ReviewService {
     public ReviewDTO createReview(ReviewDTO reviewDTO) {
         Review review = convertToEntity(reviewDTO);
         Review savedReview = reviewRepository.save(review);
+        savedReview.setImage("review_"+savedReview.getId()+".jpeg");
+        savedReview = reviewRepository.save(savedReview);
         return convertToDto(savedReview);
     }
 
@@ -98,11 +105,9 @@ public class ReviewService {
         review.setRecipe(recipe);
         review.setDescription(reviewDTO.getDescription());
         review.setRating(reviewDTO.getRating());;
-        Long reviewNumber = reviewRepository.getMaxId();
-        reviewNumber++;
-        review.setImage("review_" + reviewNumber + ".jpeg");
         return review;
     }
+
 
 
 }

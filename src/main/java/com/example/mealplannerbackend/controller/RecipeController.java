@@ -1,12 +1,12 @@
 package com.example.mealplannerbackend.controller;
 
 import com.example.mealplannerbackend.dto.RecipeDTO;
-import com.example.mealplannerbackend.exceptions.RecipeNotFoundException;
+import com.example.mealplannerbackend.service.AwardService;
 import com.example.mealplannerbackend.service.RecipeService;
+import com.example.mealplannerbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -16,9 +16,15 @@ public class RecipeController {
 
     private final RecipeService recipeService;
 
+    private final AwardService awardService;
+
+    private final UserService userService;
+
     @Autowired
-    public RecipeController(RecipeService recipeService) {
+    public RecipeController(RecipeService recipeService, AwardService awardService, UserService userService) {
         this.recipeService = recipeService;
+        this.awardService = awardService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -54,6 +60,7 @@ public class RecipeController {
     @PostMapping
     public ResponseEntity<RecipeDTO> createRecipe(@RequestBody RecipeDTO recipeDTO) {
         RecipeDTO newRecipe = recipeService.createRecipe(recipeDTO);
+        awardService.checkAndAwardAchievements(userService.getUserByUsername(recipeDTO.getUsername()).getId());
         return new ResponseEntity<>(newRecipe, HttpStatus.CREATED);
     }
 

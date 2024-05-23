@@ -2,19 +2,11 @@ package com.example.mealplannerbackend.service;
 
 import com.example.mealplannerbackend.dto.UserDTO;
 import com.example.mealplannerbackend.exceptions.UserNotFoundException;
-import com.example.mealplannerbackend.model.Award;
-import com.example.mealplannerbackend.model.Recipe;
-import com.example.mealplannerbackend.model.Review;
-import com.example.mealplannerbackend.model.User;
-import com.example.mealplannerbackend.repository.AwardRepository;
-import com.example.mealplannerbackend.repository.RecipeRepository;
-import com.example.mealplannerbackend.repository.ReviewRepository;
-import com.example.mealplannerbackend.repository.UserRepository;
-import org.modelmapper.ModelMapper;
+import com.example.mealplannerbackend.model.*;
+import com.example.mealplannerbackend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,12 +22,15 @@ public class UserService {
 
     private final AwardRepository awardRepository;
 
+    private final NotificationRepository notificationRepository;
+
     @Autowired
-    public UserService(UserRepository userRepository, RecipeRepository recipeRepository, ReviewRepository reviewRepository, AwardRepository awardRepository) {
+    public UserService(UserRepository userRepository, RecipeRepository recipeRepository, ReviewRepository reviewRepository, AwardRepository awardRepository, NotificationRepository notificationRepository) {
         this.userRepository = userRepository;
         this.recipeRepository = recipeRepository;
         this.reviewRepository = reviewRepository;
         this.awardRepository = awardRepository;
+        this.notificationRepository = notificationRepository;
     }
 
     public List<UserDTO> getAllUsers() {
@@ -57,6 +52,15 @@ public class UserService {
 
     public UserDTO createUser(UserDTO userDTO) {
         User user = convertToEntity(userDTO);
+        Award award = awardRepository.getAwardByName("Welcome Aboard");
+        List<Award> userAwards = user.getAwards();
+        userAwards.add(award);
+        user.setAwards(userAwards);
+        Notification notification = new Notification();
+        notification.setUserId(user.getId());
+        notification.setAwardId(award.getId());
+        notification.setNotificationShown(false);
+        notificationRepository.save(notification);
         User savedUser = userRepository.save(user);
         return convertToDto(savedUser);
     }
@@ -143,6 +147,5 @@ public class UserService {
 
         return user;
     }
-
 
 }

@@ -3,12 +3,10 @@ package com.example.mealplannerbackend.service;
 import com.example.mealplannerbackend.dto.AwardDTO;
 import com.example.mealplannerbackend.exceptions.AwardNotFoundException;
 import com.example.mealplannerbackend.exceptions.UserNotFoundException;
-import com.example.mealplannerbackend.model.Award;
-import com.example.mealplannerbackend.model.Category;
-import com.example.mealplannerbackend.model.Recipe;
-import com.example.mealplannerbackend.model.User;
+import com.example.mealplannerbackend.model.*;
 import com.example.mealplannerbackend.repository.AwardRepository;
 import com.example.mealplannerbackend.repository.CategoryRepository;
+import com.example.mealplannerbackend.repository.NotificationRepository;
 import com.example.mealplannerbackend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +24,15 @@ public class AwardService {
 
     private final AwardRepository awardRepository;
     private final UserRepository userRepository;
-
     private final CategoryRepository categoryRepository;
 
-    public AwardService(AwardRepository awardRepository, UserRepository userRepository, CategoryRepository categoryRepository) {
+    private final NotificationRepository notificationRepository;
+
+    public AwardService(AwardRepository awardRepository, UserRepository userRepository, CategoryRepository categoryRepository, NotificationRepository notificationRepository) {
         this.awardRepository = awardRepository;
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
+        this.notificationRepository = notificationRepository;
     }
 
     public List<AwardDTO> getAllAwards() {
@@ -168,6 +168,20 @@ public class AwardService {
 
         // Call remaining achievement checkers
         achievementCheckers.forEach(Runnable::run);
+        grantLevels(user);
+
+        List<Runnable> achievementCheckersLevel = new ArrayList<>();
+
+        if (!user.hasAward("Cooking Enthusiast")) {
+            achievementCheckersLevel.add(() -> checkAndAwardCookingEnthusiast(user));
+        }
+        if (!user.hasAward("Culinary Virtuoso")) {
+            achievementCheckersLevel.add(() -> checkAndAwardCulinaryVirtuoso(user));
+        }
+        if (!user.hasAward("Gastronomy Guru")) {
+            achievementCheckersLevel.add(() -> checkAndAwardGastronomyGuru(user));
+        }
+        achievementCheckersLevel.forEach(Runnable::run);
         grantLevels(user);
         userRepository.save(user);
     }
@@ -311,13 +325,18 @@ public class AwardService {
         List<Award> userAwards = user.getAwards();
         userAwards.add(award);
         user.setAwards(userAwards);
+        Notification notification = new Notification();
+        notification.setUserId(user.getId());
+        notification.setAwardId(award.getId());
+        notification.setNotificationShown(false);
+        notificationRepository.save(notification);
     }
 
     private void grantLevels(User user) {
         int experience_recipes = user.getRecipes().size() * 70;
         int experience_reviews = user.getReviews().size() * 40;
         int experience_awards = user.getAwards().size() * 200;
-        int total_experience = experience_awards + experience_recipes + experience_reviews;
+        int total_experience = experience_awards + experience_recipes + experience_reviews - 200;
         int total_level = total_experience / 100;
         int remainining_experience = total_experience % 100;
         user.setLevel(total_level + 1);

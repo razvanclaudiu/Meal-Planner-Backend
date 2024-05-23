@@ -53,7 +53,7 @@ public class ImageController {
     // Define a class to represent the request body
     public static class ImageUploadRequest {
         private String imageData;
-        private Long id;
+        private String id;
 
         // Getters and setters
         public String getImageData() {
@@ -64,11 +64,11 @@ public class ImageController {
             this.imageData = imageData;
         }
 
-        public Long getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(Long id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -85,7 +85,7 @@ public class ImageController {
         }
     }
 
-    private ResponseEntity<String> uploadImage(String directory, String imageData, Long entityId, String entityType) {
+    private ResponseEntity<String> uploadImage(String directory, String imageData, String entityId, String entityType) {
         if (imageData == null || imageData.isEmpty()) {
             return new ResponseEntity<>("Please provide an image", HttpStatus.BAD_REQUEST);
         }
