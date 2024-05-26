@@ -143,7 +143,7 @@ public class UserService {
         user.setName(userDTO.getName());
         user.setCreationDate(new Date());
         user.setImage(userDTO.getImage());
-        user.setTitle("Beginner");
+        user.setTitle("Novice");
 
         return user;
     }

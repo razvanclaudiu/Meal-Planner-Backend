@@ -183,6 +183,7 @@ public class AwardService {
         }
         achievementCheckersLevel.forEach(Runnable::run);
         grantLevels(user);
+        grantTitles(user);
         userRepository.save(user);
     }
 
@@ -341,6 +342,40 @@ public class AwardService {
         int remainining_experience = total_experience % 100;
         user.setLevel(total_level + 1);
         user.setExperience(remainining_experience);
+    }
+
+    private static final String[] TITLES = {
+            "Rookie",      // Levels 1-12
+            "Apprentice",  // Levels 13-24
+            "Cook",        // Levels 25-36
+            "Chef",        // Levels 37-48
+            "Gourmet",     // Levels 49-60
+            "Connoisseur", // Levels 61-72
+            "Virtuoso",    // Levels 73-84
+            "Master",      // Levels 85-99
+            "Legend"       // Levels 100 and above
+    };
+
+    public void grantTitles(User user) {
+        int level = user.getLevel();
+        String title;
+
+        if (level >= 100) {
+            title = "Legend";
+        }
+        else if(level >=97) {
+            title = "Master";
+        } else if (level >= 1) {
+            int index = (level - 1) / 12;
+            if (index >= TITLES.length) {
+                index = TITLES.length - 1; // Ensure index is within the array bounds
+            }
+            title = TITLES[index];
+        } else {
+            title = "Unknown";
+        }
+
+        user.setTitle(title);
     }
 
     private LocalDate convertToLocalDate(Date date) {

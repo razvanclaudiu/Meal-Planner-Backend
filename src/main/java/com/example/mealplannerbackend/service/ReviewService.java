@@ -100,11 +100,11 @@ public class ReviewService {
         review.setId(reviewDTO.getId());
         User user = userRepository.findById(reviewDTO.getUser_id()).orElse(null);
         Recipe recipe = recipeRepository.findById(reviewDTO.getRecipe_id()).orElse(null);
-        System.out.println("User:" + user.getId());
         review.setUser(user);
         review.setRecipe(recipe);
         review.setDescription(reviewDTO.getDescription());
-        review.setRating(reviewDTO.getRating());;
+        review.setRating(reviewDTO.getRating());
+        review.setImage(reviewDTO.getImage());
         return review;
     }
 

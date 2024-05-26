@@ -77,7 +77,7 @@ public class AuthController {
         user.setCreationDate(new Date());
         user.setExperience(0);
         user.setLevel(1);
-        user.setTitle("Beginner");
+        user.setTitle("Rookie");
         Role roles = roleRepository.findByName("USER").get();
         user.setRoles(Collections.singletonList(roles));
         user.setImage("user_"+user.getUsername()+".jpeg");

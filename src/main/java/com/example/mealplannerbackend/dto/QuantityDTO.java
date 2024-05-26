@@ -1,36 +1,21 @@
-package com.example.mealplannerbackend.model;
+package com.example.mealplannerbackend.dto;
 
-import jakarta.persistence.*;
+import lombok.Data;
 
-@Entity
-@Table(name = "quantities")
-public class Quantity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class QuantityDTO {
     private Long id;
-
-    @Column(nullable = false)
     private Long recipeId;
-
-    @Column(nullable = false)
     private Long ingredientId;
-
     private String quantity;
-    public Quantity() {
-    }
 
-    public Quantity(Long recipeId, Long ingredientId, String quantity) {
-        this.recipeId = recipeId;
-        this.ingredientId = ingredientId;
-        this.quantity = quantity;
+    // Getters and Setters
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public Long getRecipeId() {

@@ -1,5 +1,8 @@
 package com.example.mealplannerbackend.dto;
 
+import lombok.Data;
+
+@Data
 public class NotificationDTO {
     private Long id;
     private boolean notificationShown;

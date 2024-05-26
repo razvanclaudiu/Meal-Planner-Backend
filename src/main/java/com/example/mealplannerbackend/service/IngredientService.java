@@ -27,6 +27,11 @@ public class IngredientService {
         return ingredients.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    public List<IngredientDTO> getAllIngredientsOfRecipe(Long id) {
+        List<Ingredient> ingredients = ingredientRepository.getAllByRecipesId(id);
+        return ingredients.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
     public IngredientDTO getIngredientById(Long id) {
         Ingredient ingredient = ingredientRepository.findById(id)
                 .orElseThrow(() -> new IngredientNotFoundException("Ingredient not found with id: " + id));
@@ -68,4 +73,6 @@ public class IngredientService {
     private Ingredient convertToEntity(IngredientDTO ingredientDTO) {
         return modelMapper.map(ingredientDTO, Ingredient.class);
     }
+
+
 }

@@ -81,4 +81,21 @@ public class RecipeController {
         List<RecipeDTO> filteredRecipes = recipeService.filterRecipesByKeyword(keyword);
         return new ResponseEntity<>(filteredRecipes, HttpStatus.OK);
     }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<RecipeDTO>> filterRecipesByCategoriesAndIngredients(
+            @RequestParam(value = "categories", required = false) List<Long> filterCategories,
+            @RequestParam(value = "ingredients", required = false) List<Long> filterIngredients) {
+
+        // Check if both filterCategories and filterIngredients are null or empty,
+        // if so, return all recipes
+        if ((filterCategories == null || filterCategories.isEmpty()) &&
+                (filterIngredients == null || filterIngredients.isEmpty())) {
+            return getAllRecipes();
+        }
+
+        List<RecipeDTO> filteredRecipes = recipeService.filterRecipesByCategoriesAndIngredients(filterCategories, filterIngredients);
+        return new ResponseEntity<>(filteredRecipes, HttpStatus.OK);
+    }
+
 }

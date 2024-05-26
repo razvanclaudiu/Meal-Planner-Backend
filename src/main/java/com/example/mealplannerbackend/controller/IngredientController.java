@@ -26,6 +26,12 @@ public class IngredientController {
         return new ResponseEntity<>(ingredients, HttpStatus.OK);
     }
 
+    @GetMapping("/recipe/{id}")
+    public ResponseEntity<List<IngredientDTO>> getAllIngredientsOfRecipe(@PathVariable Long id) {
+        List<IngredientDTO> ingredients = ingredientService.getAllIngredientsOfRecipe(id);
+        return new ResponseEntity<>(ingredients, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<IngredientDTO> getIngredientById(@PathVariable Long id) {
         IngredientDTO ingredient = ingredientService.getIngredientById(id);

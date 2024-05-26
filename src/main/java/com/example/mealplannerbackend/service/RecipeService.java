@@ -229,4 +229,26 @@ public class RecipeService {
         return recipe;
     }
 
+    public List<RecipeDTO> filterRecipesByCategoriesAndIngredients(List<Long> filterCategories, List<Long> filterIngredients) {
+        if ((filterCategories == null || filterCategories.isEmpty()) &&
+                (filterIngredients == null || filterIngredients.isEmpty())) {
+            // If both parameters are null or empty, return all recipes
+            return getAllRecipes();
+        }
+
+        List<Recipe> recipes;
+
+        if (filterCategories != null && !filterCategories.isEmpty() &&
+                filterIngredients != null && !filterIngredients.isEmpty()) {
+            // If both parameters are provided, filter by both categories and ingredients
+            recipes = recipeRepository.findByCategoriesIdsAndIngredientsIds(filterCategories, filterIngredients, (long) filterCategories.size(), (long) filterIngredients.size());
+        } else if (filterCategories != null && !filterCategories.isEmpty()) {
+            // If only categories are provided, filter by categories
+            recipes = recipeRepository.findByCategoriesIds(filterCategories, (long) filterCategories.size());
+        } else {
+            // If only ingredients are provided, filter by ingredients
+            recipes = recipeRepository.findByIngredientsIds(filterIngredients, (long) filterIngredients.size());
+        }
+        return recipes.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
 }
