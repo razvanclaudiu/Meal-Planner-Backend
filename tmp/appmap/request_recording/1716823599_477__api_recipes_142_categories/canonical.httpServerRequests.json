@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/recipes/{id}/categories",
+    "parameters": "()",
+    "status": 200
+  }
+]

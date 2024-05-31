@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.CategoryDTO;
 import com.example.mealplannerbackend.exceptions.CategoryNotFoundException;
 import com.example.mealplannerbackend.model.Category;
 import com.example.mealplannerbackend.repository.CategoryRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,16 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
-
-    @Autowired
-    public CategoryService(CategoryRepository categoryRepository, ModelMapper modelMapper) {
-        this.categoryRepository = categoryRepository;
-        this.modelMapper = modelMapper;
-    }
 
     public List<CategoryDTO> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();

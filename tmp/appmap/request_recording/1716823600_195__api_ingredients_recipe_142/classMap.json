@@ -1,0 +1,112 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllByRecipesId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/IngredientRepository.java:-1"
+                      }
+                    ],
+                    "name": "IngredientRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllIngredientsOfRecipe",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/IngredientController.java:31"
+                      }
+                    ],
+                    "name": "IngredientController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllIngredientsOfRecipe",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/IngredientService.java:27"
+                      }
+                    ],
+                    "name": "IngredientService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/ingredients/recipe/{id}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select i1_0.id,i1_0.name from ingredients i1_0 left join recipe_ingredients r1_0 on i1_0.id=r1_0.ingredient_id where r1_0.recipe_id=?"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "caller": "GET /api/ingredients",
+    "callee": "select i1_0.id,i1_0.name from ingredients i1_0"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/ingredients"
+  }
+]

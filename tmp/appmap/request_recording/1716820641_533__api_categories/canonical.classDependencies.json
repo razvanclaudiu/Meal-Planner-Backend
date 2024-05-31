@@ -1,0 +1,14 @@
+[
+  {
+    "caller": "GET /api/categories",
+    "callee": "#"
+  },
+  {
+    "caller": "GET /api/categories",
+    "callee": "select c1_0.id,c1_0.name from categories c1_0"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/categories"
+  }
+]

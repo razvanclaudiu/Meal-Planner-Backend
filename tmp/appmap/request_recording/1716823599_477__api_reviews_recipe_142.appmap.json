@@ -1,0 +1,361 @@
+{
+  "events": [
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 28,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 89479771,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@5555a5b"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 255456162,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@f39f3a2"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 719904579,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@2ae8df43"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+        "object_id": 1120514542,
+        "value": "com.example.mealplannerbackend.utils.JwtAuthFilter@42c9b1ee"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "sec-fetch-mode": "cors",
+          "referer": "http://localhost:3000/",
+          "sec-fetch-site": "same-site",
+          "accept-language": "ro-RO,ro;q=0.9,en-US;q=0.8,en;q=0.7",
+          "origin": "http://localhost:3000",
+          "accept": "*/*",
+          "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br, zstd",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "sec-fetch-dest": "empty"
+        },
+        "normalized_path_info": "/api/reviews/recipe/{id}",
+        "path_info": "/api/reviews/recipe/142",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 2,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.controller.ReviewController",
+      "event": "call",
+      "id": 3,
+      "lineno": 43,
+      "method_id": "getAllReviewsOfRecipe",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "id",
+          "object_id": 481748776,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/controller/ReviewController.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.controller.ReviewController",
+        "object_id": 475657902,
+        "value": "com.example.mealplannerbackend.controller.ReviewController@1c59f6ae"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.service.ReviewService",
+      "event": "call",
+      "id": 4,
+      "lineno": 33,
+      "method_id": "getAllReviewsOfRecipe",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "id",
+          "object_id": 481748776,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/service/ReviewService.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.service.ReviewService",
+        "object_id": 225879741,
+        "value": "com.example.mealplannerbackend.service.ReviewService@d76a6bd"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.repository.ReviewRepository",
+      "event": "call",
+      "id": 5,
+      "lineno": -1,
+      "method_id": "getAllByRecipeId",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 481748776,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/repository/ReviewRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy197",
+        "object_id": 1503602959,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@97cdab8"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join recipes r2_0 on r2_0.id=r1_0.recipe_id where r2_0.id=?"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.00030013,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.01130012,
+      "event": "return",
+      "id": 8,
+      "parent_id": 5,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1010697178,
+        "value": "[]"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.02379964,
+      "event": "return",
+      "id": 9,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1741051951,
+        "value": "[]"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.024,
+      "event": "return",
+      "id": 10,
+      "parent_id": 3,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 208031509,
+        "value": "<200 OK OK,[],[]>"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.04509988,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Access-Control-Allow-Origin": "*",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Date": "Mon, 27 May 2024 15:26:39 GMT",
+          "X-Frame-Options": "DENY",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Vary": "Origin",
+          "Expires": "0",
+          "X-XSS-Protection": "0",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 11,
+      "parent_id": 2,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.04700037,
+      "event": "return",
+      "id": 12,
+      "parent_id": 1,
+      "thread_id": 54
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/reviews/recipe/142 (200) - 18:26:39.477",
+    "app": "Meal-Planner-Backend",
+    "language": {
+      "name": "java",
+      "version": "19+36-2238",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/razvanclaudiu/Meal-Planner-Backend.git",
+      "branch": "main",
+      "commit": "81e9531d38d7b616d6121c7d30c195f95509b8ca"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllByRecipeId",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/repository/ReviewRepository.java:-1"
+                        }
+                      ],
+                      "name": "ReviewRepository",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "repository",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                        }
+                      ],
+                      "name": "JwtAuthFilter",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "utils",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllReviewsOfRecipe",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/service/ReviewService.java:33"
+                        }
+                      ],
+                      "name": "ReviewService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllReviewsOfRecipe",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/controller/ReviewController.java:43"
+                        }
+                      ],
+                      "name": "ReviewController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "mealplannerbackend",
+              "type": "package"
+            }
+          ],
+          "name": "example",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/reviews/recipe/{id}"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join recipes r2_0 on r2_0.id=r1_0.recipe_id where r2_0.id=?"
+        }
+      ]
+    }
+  ]
+}

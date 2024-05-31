@@ -1,0 +1,66 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getRecipeImage",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ImageController.java:25"
+                      }
+                    ],
+                    "name": "ImageController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/images/recipe/{imageName}"
+      }
+    ]
+  }
+]

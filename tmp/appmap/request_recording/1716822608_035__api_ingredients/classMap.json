@@ -1,0 +1,58 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/ingredients"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select i1_0.id,i1_0.name from ingredients i1_0"
+      }
+    ]
+  }
+]

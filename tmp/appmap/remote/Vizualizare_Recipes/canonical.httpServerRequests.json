@@ -1,0 +1,22 @@
+[
+  {
+    "route": "GET /api/images/recipe/{imageName}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/images/recipe/{imageName}",
+    "parameters": "()",
+    "status": null
+  },
+  {
+    "route": "GET /api/recipes",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/recipes/filter",
+    "parameters": "(categories,ingredients)",
+    "status": 200
+  }
+]

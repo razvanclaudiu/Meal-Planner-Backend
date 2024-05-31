@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/images/user/{imageName}",
+    "parameters": "()",
+    "status": 200
+  }
+]

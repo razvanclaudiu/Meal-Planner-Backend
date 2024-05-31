@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.QuantityDTO;
 import com.example.mealplannerbackend.exceptions.QuantityNotFoundException;
 import com.example.mealplannerbackend.model.Quantity;
 import com.example.mealplannerbackend.repository.QuantityRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +12,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class QuantityService {
 
     @Autowired
     private final QuantityRepository quantityRepository;
-
-    public QuantityService(QuantityRepository quantityRepository) {
-        this.quantityRepository = quantityRepository;
-    }
 
     public List<QuantityDTO> getAllQuantities() {
         List<Quantity> quantities = quantityRepository.findAll();
@@ -58,6 +56,10 @@ public class QuantityService {
         quantityRepository.deleteById(id);
     }
 
+    public void deleteQuantitiesOfRecipe(Long id) {
+        quantityRepository.deleteAllByRecipeId(id);
+    }
+
     private QuantityDTO convertToDto(Quantity quantity) {
         QuantityDTO quantityDTO = new QuantityDTO();
         quantityDTO.setId(quantity.getId());
@@ -75,4 +77,6 @@ public class QuantityService {
         quantity.setQuantity(quantityDTO.getQuantity());
         return quantity;
     }
+
+
 }

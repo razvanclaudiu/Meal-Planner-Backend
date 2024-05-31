@@ -1,0 +1,6 @@
+[
+  "com/example/mealplannerbackend/controller/AuthController",
+  "com/example/mealplannerbackend/repository/UserRepository",
+  "com/example/mealplannerbackend/service/CustomUserDetailsService",
+  "com/example/mealplannerbackend/utils/JwtProvider"
+]

@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.IngredientDTO;
 import com.example.mealplannerbackend.exceptions.IngredientNotFoundException;
 import com.example.mealplannerbackend.model.Ingredient;
 import com.example.mealplannerbackend.repository.IngredientRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +12,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class IngredientService {
 
     private final IngredientRepository ingredientRepository;
     private final ModelMapper modelMapper;
-
-    @Autowired
-    public IngredientService(IngredientRepository ingredientRepository, ModelMapper modelMapper) {
-        this.ingredientRepository = ingredientRepository;
-        this.modelMapper = modelMapper;
-    }
 
     public List<IngredientDTO> getAllIngredients() {
         List<Ingredient> ingredients = ingredientRepository.findAll();

@@ -1,0 +1,112 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getQuantitiesOfRecipe",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/QuantityController.java:30"
+                      }
+                    ],
+                    "name": "QuantityController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "findAllByRecipeId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/QuantityRepository.java:-1"
+                      }
+                    ],
+                    "name": "QuantityRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getQuantitiesOfRecipe",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/QuantityService.java:27"
+                      }
+                    ],
+                    "name": "QuantityService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/quantities/recipe/{recipeId}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select q1_0.id,q1_0.ingredient_id,q1_0.quantity,q1_0.recipe_id from quantities q1_0 where q1_0.recipe_id=?"
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllReviewsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ReviewController.java:49"
+                      }
+                    ],
+                    "name": "ReviewController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllReviewsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/ReviewService.java:38"
+                      }
+                    ],
+                    "name": "ReviewService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllByUserId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/ReviewRepository.java:-1"
+                      }
+                    ],
+                    "name": "ReviewRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/reviews/user/{id}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+      }
+    ]
+  }
+]

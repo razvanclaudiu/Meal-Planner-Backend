@@ -1,0 +1,66 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/awards"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select a1_0.id,a1_0.description,a1_0.image,a1_0.name from awards a1_0"
+      },
+      {
+        "type": "query",
+        "name": "select u1_0.award_id,u1_1.id,u1_1.creation_date,u1_1.experience,u1_1.image,u1_1.level,u1_1.name,u1_1.password,u1_1.title,u1_1.username from user_awards u1_0 join users u1_1 on u1_1.id=u1_0.user_id where u1_0.award_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?"
+      }
+    ]
+  }
+]

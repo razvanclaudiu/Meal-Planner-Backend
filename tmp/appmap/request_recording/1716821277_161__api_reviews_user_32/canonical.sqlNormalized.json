@@ -1,0 +1,3 @@
+[
+  "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+]

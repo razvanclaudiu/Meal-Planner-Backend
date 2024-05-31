@@ -22,6 +22,4 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query("SELECT DISTINCT r FROM Recipe r JOIN r.categories c JOIN r.ingredients i WHERE c.id IN :categoryIds AND i.id IN :ingredientIds GROUP BY r HAVING COUNT(DISTINCT c) = :categoryCount AND COUNT(DISTINCT i) = :ingredientCount")
     List<Recipe> findByCategoriesIdsAndIngredientsIds(@Param("categoryIds") List<Long> categoryIds, @Param("ingredientIds") List<Long> ingredientIds, @Param("categoryCount") Long categoryCount, @Param("ingredientCount") Long ingredientCount);
 
-    @Query(value = "SELECT coalesce(max(id), 0) FROM Recipe")
-    public Long getMaxId();
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "class": "org.springframework.security.authentication.BadCredentialsException",
+    "message": "Bad credentials",
+    "stack": [
+      "AbstractUserDetailsAuthenticationProvider.java:141",
+      "src/main/java/com/example/mealplannerbackend/controller/AuthController.java:100",
+      "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+    ],
+    "location": "AbstractUserDetailsAuthenticationProvider.java:141"
+  },
+  {
+    "class": "org.springframework.security.core.userdetails.UsernameNotFoundException",
+    "message": "Username does not exist!",
+    "stack": [
+      "CustomUserDetailsService.java:30",
+      "src/main/java/com/example/mealplannerbackend/service/CustomUserDetailsService.java:29",
+      "src/main/java/com/example/mealplannerbackend/controller/AuthController.java:100",
+      "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+    ],
+    "location": "CustomUserDetailsService.java:30"
+  }
+]

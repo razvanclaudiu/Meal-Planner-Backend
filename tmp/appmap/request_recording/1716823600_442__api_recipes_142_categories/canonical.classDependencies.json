@@ -1,0 +1,18 @@
+[
+  {
+    "caller": "GET /api/recipes/{id}/categories",
+    "callee": "com/example"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/recipes/{id}/categories"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r2_0.user_id,r2_1.id,r2_1.name,r1_0.video_link from recipes r1_0 left join users u1_0 on u1_0.id=r1_0.user_id left join user_roles r2_0 on u1_0.id=r2_0.user_id left join roles r2_1 on r2_1.id=r2_0.role_id where r1_0.id=?"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "route": "GET /api/images/recipe/{imageName}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/images/user/{imageName}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/recipes",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/recipes/filter",
+    "parameters": "(categories,ingredients)",
+    "status": 200
+  },
+  {
+    "route": "GET /api/recipes/user/{userId}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /api/reviews/user/{id}",
+    "parameters": "()",
+    "status": 200
+  }
+]

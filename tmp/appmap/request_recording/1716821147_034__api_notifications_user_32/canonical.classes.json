@@ -1,0 +1,5 @@
+[
+  "com/example/mealplannerbackend/controller/NotificationController",
+  "com/example/mealplannerbackend/repository/NotificationRepository",
+  "com/example/mealplannerbackend/service/NotificationService"
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/reviews/user/{id}",
+    "parameters": "()",
+    "status": 200
+  }
+]

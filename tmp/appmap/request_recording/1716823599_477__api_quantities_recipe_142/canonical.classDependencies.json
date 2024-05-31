@@ -1,0 +1,14 @@
+[
+  {
+    "caller": "GET /api/quantities/recipe/{recipeId}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/quantities/recipe/{recipeId}"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select q1_0.id,q1_0.ingredient_id,q1_0.quantity,q1_0.recipe_id from quantities q1_0 where q1_0.recipe_id=?"
+  }
+]

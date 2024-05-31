@@ -1,0 +1,6 @@
+[
+  "com/example/mealplannerbackend/controller",
+  "com/example/mealplannerbackend/repository",
+  "com/example/mealplannerbackend/service",
+  "com/example/mealplannerbackend/utils"
+]

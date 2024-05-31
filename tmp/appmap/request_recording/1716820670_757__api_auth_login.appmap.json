@@ -1,0 +1,431 @@
+{
+  "events": [
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 28,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 1785430913,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@6a6b8381"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 625732217,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@254bea79"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 1366971456,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@517a5440"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+        "object_id": 1029638356,
+        "value": "com.example.mealplannerbackend.utils.JwtAuthFilter@3d5f08d4"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "sec-fetch-mode": "cors",
+          "content-length": "47",
+          "referer": "http://localhost:3000/",
+          "sec-fetch-site": "same-site",
+          "accept-language": "ro-RO,ro;q=0.9,en-US;q=0.8,en;q=0.7",
+          "origin": "http://localhost:3000",
+          "accept": "*/*",
+          "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "accept-encoding": "gzip, deflate, br, zstd",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "sec-fetch-dest": "empty"
+        },
+        "normalized_path_info": "/api/auth/login",
+        "path_info": "/api/auth/login",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 2,
+      "thread_id": 50
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.controller.AuthController",
+      "event": "call",
+      "id": 3,
+      "lineno": 100,
+      "method_id": "login",
+      "parameters": [
+        {
+          "class": "com.example.mealplannerbackend.dto.LoginDTO",
+          "kind": "req",
+          "name": "loginDTO",
+          "object_id": 2121821161,
+          "value": "LoginDTO(username=tomutarazvan, password=parola)"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/controller/AuthController.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.controller.AuthController",
+        "object_id": 890800172,
+        "value": "com.example.mealplannerbackend.controller.AuthController@3518882c"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.service.CustomUserDetailsService",
+      "event": "call",
+      "id": 4,
+      "lineno": 29,
+      "method_id": "loadUserByUsername",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "username",
+          "object_id": 1912965999,
+          "value": "tomutarazvan"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/service/CustomUserDetailsService.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.service.CustomUserDetailsService",
+        "object_id": 194606901,
+        "value": "com.example.mealplannerbackend.service.CustomUserDetailsService@b997735"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.repository.UserRepository",
+      "event": "call",
+      "id": 5,
+      "lineno": -1,
+      "method_id": "findByUsername",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 1912965999,
+          "value": "tomutarazvan"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/repository/UserRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy181",
+        "object_id": 1693862682,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@555dae07"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from users u1_0 where u1_0.username=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 8,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 9,
+      "parent_id": 8,
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.00470012,
+      "event": "return",
+      "id": 10,
+      "parent_id": 5,
+      "return_value": {
+        "class": "java.util.Optional",
+        "object_id": 69464237,
+        "value": "Optional[com.example.mealplannerbackend.model.User@465e630]"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.00640013,
+      "event": "return",
+      "id": 11,
+      "parent_id": 4,
+      "return_value": {
+        "class": "org.springframework.security.core.userdetails.User",
+        "object_id": 407267315,
+        "value": "org.springframework.security.core.userdetails.User [Username=tomutarazvan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[USER]]"
+      },
+      "thread_id": 50
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtProvider",
+      "event": "call",
+      "id": 12,
+      "lineno": 22,
+      "method_id": "generateToken",
+      "parameters": [
+        {
+          "class": "org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+          "kind": "req",
+          "name": "authentication",
+          "object_id": 1850904650,
+          "value": "UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=tomutarazvan, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[USER]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[USER]]"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtProvider.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtProvider",
+        "object_id": 1483997353,
+        "value": "com.example.mealplannerbackend.utils.JwtProvider@587400a9"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.00879997,
+      "event": "return",
+      "id": 13,
+      "parent_id": 12,
+      "return_value": {
+        "class": "java.lang.String",
+        "object_id": 1811765023,
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0b211dGFyYXp2YW4iLCJpYXQiOjE3MTY4MjA2NzEsImV4cCI6MTcxNjgyNjY3MX0.BufCeCohlyNCdlqnPgYSUPKtSh5SDB9-GPbnHj3NjLg"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.04070051,
+      "event": "return",
+      "id": 14,
+      "parent_id": 3,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 809984154,
+        "value": "<200 OK OK,AuthResponse(accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0b211dGFyYXp2YW4iLCJpYXQiOjE3MTY4MjA2NzEsImV4cCI6MTcxNjgyNjY3MX0.BufCeCohlyNCdlqnPgYSUPKtSh5SDB9-GPbnHj3NjLg, tokenType=Bearer ),[]>"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.0507,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Access-Control-Allow-Origin": "*",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Date": "Mon, 27 May 2024 14:37:50 GMT",
+          "X-Frame-Options": "DENY",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Vary": "Origin",
+          "Expires": "0",
+          "X-XSS-Protection": "0",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 15,
+      "parent_id": 2,
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.05079952,
+      "event": "return",
+      "id": 16,
+      "parent_id": 1,
+      "thread_id": 50
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /api/auth/login (200) - 17:37:50.757",
+    "app": "Meal-Planner-Backend",
+    "language": {
+      "name": "java",
+      "version": "19+36-2238",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/razvanclaudiu/Meal-Planner-Backend.git",
+      "branch": "main",
+      "commit": "81e9531d38d7b616d6121c7d30c195f95509b8ca"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "findByUsername",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/repository/UserRepository.java:-1"
+                        }
+                      ],
+                      "name": "UserRepository",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "repository",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                        }
+                      ],
+                      "name": "JwtAuthFilter",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "generateToken",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtProvider.java:22"
+                        }
+                      ],
+                      "name": "JwtProvider",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "utils",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "loadUserByUsername",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/service/CustomUserDetailsService.java:29"
+                        }
+                      ],
+                      "name": "CustomUserDetailsService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "login",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/controller/AuthController.java:100"
+                        }
+                      ],
+                      "name": "AuthController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "mealplannerbackend",
+              "type": "package"
+            }
+          ],
+          "name": "example",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/auth/login"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from users u1_0 where u1_0.username=?"
+        },
+        {
+          "type": "query",
+          "name": "select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?"
+        }
+      ]
+    }
+  ]
+}

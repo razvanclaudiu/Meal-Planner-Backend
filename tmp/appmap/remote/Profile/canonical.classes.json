@@ -1,0 +1,10 @@
+[
+  "com/example/mealplannerbackend/controller/ImageController",
+  "com/example/mealplannerbackend/controller/RecipeController",
+  "com/example/mealplannerbackend/controller/ReviewController",
+  "com/example/mealplannerbackend/repository/RecipeRepository",
+  "com/example/mealplannerbackend/repository/ReviewRepository",
+  "com/example/mealplannerbackend/service/RecipeService",
+  "com/example/mealplannerbackend/service/ReviewService",
+  "com/example/mealplannerbackend/utils/JwtAuthFilter"
+]

@@ -1,0 +1,5 @@
+[
+  "com/example/mealplannerbackend/controller/ReviewController",
+  "com/example/mealplannerbackend/repository/ReviewRepository",
+  "com/example/mealplannerbackend/service/ReviewService"
+]

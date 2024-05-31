@@ -1,0 +1,13 @@
+[
+  "com/example/mealplannerbackend/controller/AuthController",
+  "com/example/mealplannerbackend/controller/ImageController",
+  "com/example/mealplannerbackend/controller/NotificationController",
+  "com/example/mealplannerbackend/controller/UserController",
+  "com/example/mealplannerbackend/repository/NotificationRepository",
+  "com/example/mealplannerbackend/repository/UserRepository",
+  "com/example/mealplannerbackend/service/CustomUserDetailsService",
+  "com/example/mealplannerbackend/service/NotificationService",
+  "com/example/mealplannerbackend/service/UserService",
+  "com/example/mealplannerbackend/utils/JwtAuthFilter",
+  "com/example/mealplannerbackend/utils/JwtProvider"
+]

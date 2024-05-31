@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.NotificationDTO;
 import com.example.mealplannerbackend.exceptions.NotificationNotFoundException;
 import com.example.mealplannerbackend.model.Notification;
 import com.example.mealplannerbackend.repository.NotificationRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +13,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class NotificationService {
 
     @Autowired
     private final NotificationRepository notificationRepository;
-
-    public NotificationService(NotificationRepository notificationRepository) {
-        this.notificationRepository = notificationRepository;
-    }
 
     public List<NotificationDTO> getAllNotifications() {
         List<Notification> notifications = notificationRepository.findAll();

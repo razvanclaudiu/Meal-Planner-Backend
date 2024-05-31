@@ -8,6 +8,7 @@ import com.example.mealplannerbackend.repository.AwardRepository;
 import com.example.mealplannerbackend.repository.CategoryRepository;
 import com.example.mealplannerbackend.repository.NotificationRepository;
 import com.example.mealplannerbackend.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -20,6 +21,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class AwardService {
 
     private final AwardRepository awardRepository;
@@ -27,13 +29,6 @@ public class AwardService {
     private final CategoryRepository categoryRepository;
 
     private final NotificationRepository notificationRepository;
-
-    public AwardService(AwardRepository awardRepository, UserRepository userRepository, CategoryRepository categoryRepository, NotificationRepository notificationRepository) {
-        this.awardRepository = awardRepository;
-        this.userRepository = userRepository;
-        this.categoryRepository = categoryRepository;
-        this.notificationRepository = notificationRepository;
-    }
 
     public List<AwardDTO> getAllAwards() {
         List<Award> awards = awardRepository.findAll();

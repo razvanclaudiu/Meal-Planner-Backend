@@ -1,0 +1,199 @@
+{
+  "events": [
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 28,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 509170102,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@1e5951b6"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 1372512626,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@51cee172"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 2083918269,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@7c3611bd"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+        "object_id": 1108811877,
+        "value": "com.example.mealplannerbackend.utils.JwtAuthFilter@42172065"
+      },
+      "static": false,
+      "thread_id": 52
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "sec-fetch-mode": "cors",
+          "referer": "http://localhost:3000/",
+          "sec-fetch-site": "same-site",
+          "accept-language": "ro-RO,ro;q=0.9,en-US;q=0.8,en;q=0.7",
+          "origin": "http://localhost:3000",
+          "accept": "*/*",
+          "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br, zstd",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "sec-fetch-dest": "empty"
+        },
+        "normalized_path_info": "/api/categories",
+        "path_info": "/api/categories",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 2,
+      "thread_id": 52
+    },
+    {
+      "event": "call",
+      "id": 3,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select c1_0.id,c1_0.name from categories c1_0"
+      },
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00010009,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00110061,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Access-Control-Allow-Origin": "*",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Date": "Mon, 27 May 2024 14:53:05 GMT",
+          "X-Frame-Options": "DENY",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Vary": "Origin",
+          "Expires": "0",
+          "X-XSS-Protection": "0",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 5,
+      "parent_id": 2,
+      "thread_id": 52
+    },
+    {
+      "elapsed": 0.00129967,
+      "event": "return",
+      "id": 6,
+      "parent_id": 1,
+      "thread_id": 52
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/categories (200) - 17:53:06.059",
+    "app": "Meal-Planner-Backend",
+    "language": {
+      "name": "java",
+      "version": "19+36-2238",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/razvanclaudiu/Meal-Planner-Backend.git",
+      "branch": "main",
+      "commit": "81e9531d38d7b616d6121c7d30c195f95509b8ca"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                        }
+                      ],
+                      "name": "JwtAuthFilter",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "utils",
+                  "type": "package"
+                }
+              ],
+              "name": "mealplannerbackend",
+              "type": "package"
+            }
+          ],
+          "name": "example",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/categories"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select c1_0.id,c1_0.name from categories c1_0"
+        }
+      ]
+    }
+  ]
+}

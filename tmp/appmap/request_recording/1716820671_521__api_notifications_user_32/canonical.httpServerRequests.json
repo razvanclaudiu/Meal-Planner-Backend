@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/notifications/user/{id}",
+    "parameters": "()",
+    "status": 200
+  }
+]

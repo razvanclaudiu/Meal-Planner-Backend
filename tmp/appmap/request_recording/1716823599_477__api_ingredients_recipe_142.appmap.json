@@ -1,0 +1,361 @@
+{
+  "events": [
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 28,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 1099768520,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@418d22c8"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 1172677154,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@45e5a222"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 980091813,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@3a6b03a5"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+        "object_id": 1120514542,
+        "value": "com.example.mealplannerbackend.utils.JwtAuthFilter@42c9b1ee"
+      },
+      "static": false,
+      "thread_id": 48
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "sec-fetch-mode": "cors",
+          "referer": "http://localhost:3000/",
+          "sec-fetch-site": "same-site",
+          "accept-language": "ro-RO,ro;q=0.9,en-US;q=0.8,en;q=0.7",
+          "origin": "http://localhost:3000",
+          "accept": "*/*",
+          "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br, zstd",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "sec-fetch-dest": "empty"
+        },
+        "normalized_path_info": "/api/ingredients/recipe/{id}",
+        "path_info": "/api/ingredients/recipe/142",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 2,
+      "thread_id": 48
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.controller.IngredientController",
+      "event": "call",
+      "id": 3,
+      "lineno": 31,
+      "method_id": "getAllIngredientsOfRecipe",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "id",
+          "object_id": 406054394,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/controller/IngredientController.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.controller.IngredientController",
+        "object_id": 481833477,
+        "value": "com.example.mealplannerbackend.controller.IngredientController@1cb83205"
+      },
+      "static": false,
+      "thread_id": 48
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.service.IngredientService",
+      "event": "call",
+      "id": 4,
+      "lineno": 27,
+      "method_id": "getAllIngredientsOfRecipe",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "id",
+          "object_id": 406054394,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/service/IngredientService.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.service.IngredientService",
+        "object_id": 2105542914,
+        "value": "com.example.mealplannerbackend.service.IngredientService@7d800902"
+      },
+      "static": false,
+      "thread_id": 48
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.repository.IngredientRepository",
+      "event": "call",
+      "id": 5,
+      "lineno": -1,
+      "method_id": "getAllByRecipesId",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 406054394,
+          "value": "142"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/repository/IngredientRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy191",
+        "object_id": 730278582,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@4f97bf06"
+      },
+      "static": false,
+      "thread_id": 48
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select i1_0.id,i1_0.name from ingredients i1_0 left join recipe_ingredients r1_0 on i1_0.id=r1_0.ingredient_id where r1_0.recipe_id=?"
+      },
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0.01570004,
+      "event": "return",
+      "id": 8,
+      "parent_id": 5,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 2127424884,
+        "value": "[Ingredient{id=4, name='Salt'}, Ingredient{id=10, name='Olive Oil'}, Ingredient{id=17, name='Garlic'}, Ingredient{id=19, name='Pasta'}, Ingredient{id=53, name='Pepper'}, Ingredient{id=33, name='Mushrooms'}, Ingredient{id=18, name='Onions'}, Ingredient{id=58, name='Parmesan'}, Ingredient{id=59, name='Parsley'}, Ingredient{id=60, name='Oregano'}, Ingredient{id=61, name='Basil'}, Ingredient{id=62, name='Chili Flakes'}, Ingredient{id=24, name='Tomatoes'}]"
+      },
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0.02689997,
+      "event": "return",
+      "id": 9,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1034889791,
+        "value": "[com.example.mealplannerbackend.dto.IngredientDTO@6c6fd1eb, com.example.mealplannerbackend.dto.IngredientDTO@1fbc988c, com.example.mealplannerbackend.dto.IngredientDTO@5b06a796, com.example.mealplannerbackend.dto.IngredientDTO@97ffc52, com.example.mealplannerbackend.dto.IngredientDTO@1b0d841f, com.example.mealplannerbackend.dto.IngredientDTO@600e070a, com.example.mealplannerbackend.dto.IngredientDTO@eda268a, com.example.mealplannerbackend.dto.IngredientDTO@7831c66f, com.example.mealplannerbackend.dto.IngredientDTO@f6b880a, com.example.mealplannerbackend.dto.IngredientDTO@1f4df8ba, com.example.mealplannerbackend.dto.IngredientDTO@40fc73af, com.example.mealplannerbackend.dto.IngredientDTO@3688d761, com.example.mealplannerbackend.dto.IngredientDTO@65703262]"
+      },
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0.0275,
+      "event": "return",
+      "id": 10,
+      "parent_id": 3,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 2058687439,
+        "value": "<200 OK OK,[com.example.mealplannerbackend.dto.IngredientDTO@6c6fd1eb, com.example.mealplannerbackend.dto.IngredientDTO@1fbc988c, com.example.mealplannerbackend.dto.IngredientDTO@5b06a796, com.example.mealplannerbackend.dto.IngredientDTO@97ffc52, com.example.mealplannerbackend.dto.IngredientDTO@1b0d841f, com.example.mealplannerbackend.dto.IngredientDTO@600e070a, com.example.mealplannerbackend.dto.IngredientDTO@eda268a, com.example.mealplannerbackend.dto.IngredientDTO@7831c66f, com.example.mealplannerbackend.dto.IngredientDTO@f6b880a, com.example.mealplannerbackend.dto.IngredientDTO@1f4df8ba, com.example.mealplannerbackend.dto.IngredientDTO@40fc73af, com.example.mealplannerbackend.dto.IngredientDTO@3688d761, com.example.mealplannerbackend.dto.IngredientDTO@65703262],[]>"
+      },
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0.0486,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Access-Control-Allow-Origin": "*",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Date": "Mon, 27 May 2024 15:26:39 GMT",
+          "X-Frame-Options": "DENY",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Vary": "Origin",
+          "Expires": "0",
+          "X-XSS-Protection": "0",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 11,
+      "parent_id": 2,
+      "thread_id": 48
+    },
+    {
+      "elapsed": 0.05060207,
+      "event": "return",
+      "id": 12,
+      "parent_id": 1,
+      "thread_id": 48
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/ingredients/recipe/142 (200) - 18:26:39.477",
+    "app": "Meal-Planner-Backend",
+    "language": {
+      "name": "java",
+      "version": "19+36-2238",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/razvanclaudiu/Meal-Planner-Backend.git",
+      "branch": "main",
+      "commit": "81e9531d38d7b616d6121c7d30c195f95509b8ca"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllByRecipesId",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/repository/IngredientRepository.java:-1"
+                        }
+                      ],
+                      "name": "IngredientRepository",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "repository",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                        }
+                      ],
+                      "name": "JwtAuthFilter",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "utils",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllIngredientsOfRecipe",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/controller/IngredientController.java:31"
+                        }
+                      ],
+                      "name": "IngredientController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getAllIngredientsOfRecipe",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/service/IngredientService.java:27"
+                        }
+                      ],
+                      "name": "IngredientService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "mealplannerbackend",
+              "type": "package"
+            }
+          ],
+          "name": "example",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/ingredients/recipe/{id}"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select i1_0.id,i1_0.name from ingredients i1_0 left join recipe_ingredients r1_0 on i1_0.id=r1_0.ingredient_id where r1_0.recipe_id=?"
+        }
+      ]
+    }
+  ]
+}

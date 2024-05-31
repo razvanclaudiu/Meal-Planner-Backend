@@ -1,0 +1,3 @@
+[
+  "select n1_0.id,n1_0.award_id,n1_0.notification_shown,n1_0.user_id from notifications n1_0 where n1_0.user_id=? and not(n1_0.notification_shown)"
+]

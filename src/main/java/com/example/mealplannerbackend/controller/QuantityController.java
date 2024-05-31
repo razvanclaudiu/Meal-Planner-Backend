@@ -54,4 +54,10 @@ public class QuantityController {
         quantityService.deleteQuantity(id);
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/recipe/{id}")
+    public ResponseEntity<Void> deleteQuantitiesOfRecipe(@PathVariable Long id) {
+        quantityService.deleteQuantitiesOfRecipe(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -44,11 +44,9 @@ public class AuthController {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private AwardRepository awardRepository;
-
     private NotificationRepository notificationRepository;
     private PasswordEncoder passwordEncoder;
 
-    private NotificationController notificationController;
     private JwtProvider jwtProvider;
 
 

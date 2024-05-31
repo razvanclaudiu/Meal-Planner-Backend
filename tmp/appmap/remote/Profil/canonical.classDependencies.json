@@ -1,0 +1,94 @@
+[
+  {
+    "caller": "GET /api/images/recipe/{imageName}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "GET /api/images/user/{imageName}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "GET /api/recipes",
+    "callee": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+  },
+  {
+    "caller": "GET /api/recipes",
+    "callee": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+  },
+  {
+    "caller": "GET /api/recipes",
+    "callee": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0"
+  },
+  {
+    "caller": "GET /api/recipes",
+    "callee": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+  },
+  {
+    "caller": "GET /api/recipes",
+    "callee": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r1_0.user_id,r1_1.id,r1_1.name from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id left join roles r1_1 on r1_1.id=r1_0.role_id where u1_0.id=?"
+  },
+  {
+    "caller": "GET /api/recipes/filter",
+    "callee": "com/example"
+  },
+  {
+    "caller": "GET /api/recipes/user/{userId}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "GET /api/reviews/user/{id}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/images/recipe/{imageName}"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/images/user/{imageName}"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/recipes"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/recipes/filter"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/recipes/user/{userId}"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/reviews/user/{id}"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r1_0.user_id,r1_1.id,r1_1.name from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id left join roles r1_1 on r1_1.id=r1_0.role_id where u1_0.id=?"
+  }
+]

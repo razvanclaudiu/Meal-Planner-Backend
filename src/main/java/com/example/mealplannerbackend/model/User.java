@@ -19,7 +19,7 @@ public class User {
 
     private String password;
     private int level;
-    private int experience; // Added experience attribute
+    private int experience;
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviews;

@@ -1,0 +1,12 @@
+[
+  "authentication",
+  "filterChain",
+  "id",
+  "imageName",
+  "loginDTO",
+  "p0",
+  "request",
+  "response",
+  "token",
+  "username"
+]

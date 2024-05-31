@@ -1,0 +1,500 @@
+{
+  "events": [
+    {
+      "defined_class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+      "event": "call",
+      "id": 1,
+      "lineno": 28,
+      "method_id": "doFilterInternal",
+      "parameters": [
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 661650571,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@276ffc8b"
+        },
+        {
+          "class": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse",
+          "kind": "req",
+          "name": "response",
+          "object_id": 990836221,
+          "value": "org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@3b0ef5fd"
+        },
+        {
+          "class": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+          "kind": "req",
+          "name": "filterChain",
+          "object_id": 925300852,
+          "value": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain@3726f874"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.utils.JwtAuthFilter",
+        "object_id": 1108811877,
+        "value": "com.example.mealplannerbackend.utils.JwtAuthFilter@42172065"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "sec-fetch-mode": "cors",
+          "referer": "http://localhost:3000/",
+          "sec-fetch-site": "same-site",
+          "accept-language": "ro-RO,ro;q=0.9,en-US;q=0.8,en;q=0.7",
+          "origin": "http://localhost:3000",
+          "accept": "*/*",
+          "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br, zstd",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "sec-fetch-dest": "empty"
+        },
+        "normalized_path_info": "/api/recipes/filter",
+        "path_info": "/api/recipes/filter",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 2,
+      "message": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "categories",
+          "object_id": 629775558,
+          "value": ""
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "ingredients",
+          "object_id": 629775558,
+          "value": ""
+        }
+      ],
+      "thread_id": 50
+    },
+    {
+      "defined_class": "com.example.mealplannerbackend.controller.RecipeController",
+      "event": "call",
+      "id": 3,
+      "lineno": 92,
+      "method_id": "filterRecipesByCategoriesAndIngredients",
+      "parameters": [
+        {
+          "class": "java.util.ArrayList",
+          "kind": "req",
+          "name": "filterCategories",
+          "object_id": 1948997422,
+          "value": "[]"
+        },
+        {
+          "class": "java.util.ArrayList",
+          "kind": "req",
+          "name": "filterIngredients",
+          "object_id": 746092164,
+          "value": "[]"
+        }
+      ],
+      "path": "src/main/java/com/example/mealplannerbackend/controller/RecipeController.java",
+      "receiver": {
+        "class": "com.example.mealplannerbackend.controller.RecipeController",
+        "object_id": 1973240995,
+        "value": "com.example.mealplannerbackend.controller.RecipeController@759d44a3"
+      },
+      "static": false,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.00199811,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r1_0.user_id,r1_1.id,r1_1.name from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id left join roles r1_1 on r1_1.id=r1_0.role_id where u1_0.id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 8,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 9,
+      "parent_id": 8,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 10,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 11,
+      "parent_id": 10,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 12,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 13,
+      "parent_id": 12,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 14,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 15,
+      "parent_id": 14,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 16,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 17,
+      "parent_id": 16,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 18,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 19,
+      "parent_id": 18,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 20,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 21,
+      "parent_id": 20,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 22,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 23,
+      "parent_id": 22,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 24,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 25,
+      "parent_id": 24,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 26,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 27,
+      "parent_id": 26,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 28,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 29,
+      "parent_id": 28,
+      "thread_id": 50
+    },
+    {
+      "event": "call",
+      "id": 30,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 31,
+      "parent_id": 30,
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.01280015,
+      "event": "return",
+      "id": 32,
+      "parent_id": 3,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 199613546,
+        "value": "<200 OK OK,[com.example.mealplannerbackend.dto.RecipeDTO@230f03dc, com.example.mealplannerbackend.dto.RecipeDTO@1303ca95, com.example.mealplannerbackend.dto.RecipeDTO@5c270901, com.example.mealplannerbackend.dto.RecipeDTO@79849863],[]>"
+      },
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.01750007,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Access-Control-Allow-Origin": "*",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "keep-alive",
+          "Pragma": "no-cache",
+          "Date": "Mon, 27 May 2024 14:52:59 GMT",
+          "X-Frame-Options": "DENY",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Vary": "Origin",
+          "Expires": "0",
+          "X-XSS-Protection": "0",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 33,
+      "parent_id": 2,
+      "thread_id": 50
+    },
+    {
+      "elapsed": 0.01779992,
+      "event": "return",
+      "id": 34,
+      "parent_id": 1,
+      "thread_id": 50
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/recipes/filter (200) - 17:52:59.018",
+    "app": "Meal-Planner-Backend",
+    "language": {
+      "name": "java",
+      "version": "19+36-2238",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/razvanclaudiu/Meal-Planner-Backend.git",
+      "branch": "main",
+      "commit": "81e9531d38d7b616d6121c7d30c195f95509b8ca"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "filterRecipesByCategoriesAndIngredients",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/controller/RecipeController.java:92"
+                        }
+                      ],
+                      "name": "RecipeController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "doFilterInternal",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                        }
+                      ],
+                      "name": "JwtAuthFilter",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "utils",
+                  "type": "package"
+                }
+              ],
+              "name": "mealplannerbackend",
+              "type": "package"
+            }
+          ],
+          "name": "example",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/recipes/filter"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0"
+        },
+        {
+          "type": "query",
+          "name": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r1_0.user_id,r1_1.id,r1_1.name from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id left join roles r1_1 on r1_1.id=r1_0.role_id where u1_0.id=?"
+        },
+        {
+          "type": "query",
+          "name": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+        }
+      ]
+    }
+  ]
+}

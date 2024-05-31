@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.RecipeDTO;
 import com.example.mealplannerbackend.exceptions.RecipeNotFoundException;
 import com.example.mealplannerbackend.model.*;
 import com.example.mealplannerbackend.repository.*;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class RecipeService {
 
     private final RecipeRepository recipeRepository;
@@ -21,14 +23,6 @@ public class RecipeService {
     private final ReviewRepository reviewRepository;
     private final IngredientRepository ingredientRepository;
     private final CategoryRepository categoryRepository;
-
-    public RecipeService(RecipeRepository recipeRepository, UserRepository userRepository, ReviewRepository reviewRepository, IngredientRepository ingredientRepository, CategoryRepository categoryRepository) {
-        this.recipeRepository = recipeRepository;
-        this.userRepository = userRepository;
-        this.reviewRepository = reviewRepository;
-        this.ingredientRepository = ingredientRepository;
-        this.categoryRepository = categoryRepository;
-    }
 
     public List<RecipeDTO> getAllRecipes() {
         List<Recipe> recipes = recipeRepository.findAll();

@@ -3,6 +3,7 @@ package com.example.mealplannerbackend.config;
 import com.example.mealplannerbackend.service.CustomUserDetailsService;
 import com.example.mealplannerbackend.utils.JwtAuthEntryPoint;
 import com.example.mealplannerbackend.utils.JwtAuthFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,25 +25,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
-/*
- http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());
-        return http.build();
- */
-
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig  {
 
     private JwtAuthEntryPoint jwtAuthEntryPoint;
 
     private CustomUserDetailsService userDetailsService;
-
-    @Autowired
-    public SecurityConfig(JwtAuthEntryPoint jwtAuthEntryPoint, CustomUserDetailsService userDetailsService) {
-        this.jwtAuthEntryPoint = jwtAuthEntryPoint;
-        this.userDetailsService = userDetailsService;
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

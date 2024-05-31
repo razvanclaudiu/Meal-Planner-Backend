@@ -1,0 +1,10 @@
+[
+  {
+    "caller": "GET /api/images/user/{imageName}",
+    "callee": "com/example"
+  },
+  {
+    "caller": "com/example",
+    "callee": "GET /api/images/user/{imageName}"
+  }
+]

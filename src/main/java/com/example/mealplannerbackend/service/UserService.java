@@ -4,6 +4,7 @@ import com.example.mealplannerbackend.dto.UserDTO;
 import com.example.mealplannerbackend.exceptions.UserNotFoundException;
 import com.example.mealplannerbackend.model.*;
 import com.example.mealplannerbackend.repository.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
@@ -23,15 +25,6 @@ public class UserService {
     private final AwardRepository awardRepository;
 
     private final NotificationRepository notificationRepository;
-
-    @Autowired
-    public UserService(UserRepository userRepository, RecipeRepository recipeRepository, ReviewRepository reviewRepository, AwardRepository awardRepository, NotificationRepository notificationRepository) {
-        this.userRepository = userRepository;
-        this.recipeRepository = recipeRepository;
-        this.reviewRepository = reviewRepository;
-        this.awardRepository = awardRepository;
-        this.notificationRepository = notificationRepository;
-    }
 
     public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();

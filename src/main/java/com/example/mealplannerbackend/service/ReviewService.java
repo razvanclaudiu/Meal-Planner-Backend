@@ -8,12 +8,14 @@ import com.example.mealplannerbackend.model.User;
 import com.example.mealplannerbackend.repository.RecipeRepository;
 import com.example.mealplannerbackend.repository.ReviewRepository;
 import com.example.mealplannerbackend.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
 
     private final ReviewRepository reviewRepository;
@@ -21,13 +23,6 @@ public class ReviewService {
     private final RecipeRepository recipeRepository;
 
     private final UserRepository userRepository;
-
-    public ReviewService(ReviewRepository reviewRepository, RecipeRepository recipeRepository, UserRepository userRepository) {
-        this.reviewRepository = reviewRepository;
-        this.recipeRepository = recipeRepository;
-        this.userRepository = userRepository;
-
-    }
 
     public List<ReviewDTO> getAllReviews() {
         List<Review> reviews = reviewRepository.findAll();

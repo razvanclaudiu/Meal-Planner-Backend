@@ -1,0 +1,212 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllByUserId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/RecipeRepository.java:-1"
+                      }
+                    ],
+                    "name": "RecipeRepository",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getAllByUserId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/ReviewRepository.java:-1"
+                      }
+                    ],
+                    "name": "ReviewRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllReviewsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ReviewController.java:49"
+                      }
+                    ],
+                    "name": "ReviewController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getRecipeImage",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ImageController.java:25"
+                      },
+                      {
+                        "name": "getUserImage",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ImageController.java:30"
+                      }
+                    ],
+                    "name": "ImageController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "filterRecipesByCategoriesAndIngredients",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/RecipeController.java:92"
+                      },
+                      {
+                        "name": "getRecipeByUserId",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/RecipeController.java:56"
+                      }
+                    ],
+                    "name": "RecipeController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getAllRecipesOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/RecipeService.java:33"
+                      }
+                    ],
+                    "name": "RecipeService",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getAllReviewsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/ReviewService.java:38"
+                      }
+                    ],
+                    "name": "ReviewService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/recipes"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/images/user/{imageName}"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/reviews/user/{id}"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/recipes/user/{userId}"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/images/recipe/{imageName}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0"
+      },
+      {
+        "type": "query",
+        "name": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r1_0.user_id,r1_1.id,r1_1.name from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id left join roles r1_1 on r1_1.id=r1_0.role_id where u1_0.id=?"
+      },
+      {
+        "type": "query",
+        "name": "select i1_0.recipe_id,i1_1.id,i1_1.name from recipe_ingredients i1_0 join ingredients i1_1 on i1_1.id=i1_0.ingredient_id where i1_0.recipe_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.recipe_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where r1_0.recipe_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select c1_0.recipe_id,c1_1.id,c1_1.name from recipe_categories c1_0 join categories c1_1 on c1_1.id=c1_0.category_id where c1_0.recipe_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r1_0.recipe_id,r1_0.user_id from reviews r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.user_id,r1_0.video_link from recipes r1_0 left join users u1_0 on u1_0.id=r1_0.user_id where u1_0.id=?"
+      }
+    ]
+  }
+]

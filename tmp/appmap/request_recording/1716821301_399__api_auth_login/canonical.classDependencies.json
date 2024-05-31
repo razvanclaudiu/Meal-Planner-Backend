@@ -1,0 +1,18 @@
+[
+  {
+    "caller": "POST /api/auth/login",
+    "callee": "com/example"
+  },
+  {
+    "caller": "com/example",
+    "callee": "POST /api/auth/login"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?"
+  },
+  {
+    "caller": "com/example",
+    "callee": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from users u1_0 where u1_0.username=?"
+  }
+]

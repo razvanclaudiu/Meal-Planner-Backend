@@ -1,0 +1,4 @@
+name: "Meal-Planner-Backend"
+appmap_dir: "tmp/appmap"
+packages:
+- path: "com.example.mealplannerbackend"

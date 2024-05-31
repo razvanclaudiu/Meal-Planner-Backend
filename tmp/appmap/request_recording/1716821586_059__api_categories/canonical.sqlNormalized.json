@@ -1,0 +1,3 @@
+[
+  "select c1_0.id,c1_0.name from categories c1_0"
+]

@@ -1,0 +1,240 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "loadUserByUsername",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/CustomUserDetailsService.java:29"
+                      }
+                    ],
+                    "name": "CustomUserDetailsService",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getUserByUsername",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/UserService.java:41"
+                      }
+                    ],
+                    "name": "UserService",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getNotificationsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/service/NotificationService.java:28"
+                      }
+                    ],
+                    "name": "NotificationService",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getNotificationsOfUser",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/NotificationController.java:25"
+                      }
+                    ],
+                    "name": "NotificationController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getUserbyUsername",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/UserController.java:42"
+                      }
+                    ],
+                    "name": "UserController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getUserImage",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/ImageController.java:30"
+                      }
+                    ],
+                    "name": "ImageController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "login",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/controller/AuthController.java:100"
+                      }
+                    ],
+                    "name": "AuthController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "findByUsername",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/UserRepository.java:-1"
+                      }
+                    ],
+                    "name": "UserRepository",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getAllByUserIdAndNotificationShownFalse",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/repository/NotificationRepository.java:-1"
+                      }
+                    ],
+                    "name": "NotificationRepository",
+                    "type": "class"
+                  }
+                ],
+                "name": "repository",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "doFilterInternal",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtAuthFilter.java:28"
+                      }
+                    ],
+                    "name": "JwtAuthFilter",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "getUsernameFromJWT",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtProvider.java:36"
+                      },
+                      {
+                        "name": "generateToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtProvider.java:22"
+                      },
+                      {
+                        "name": "validateToken",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/example/mealplannerbackend/utils/JwtProvider.java:45"
+                      }
+                    ],
+                    "name": "JwtProvider",
+                    "type": "class"
+                  }
+                ],
+                "name": "utils",
+                "type": "package"
+              }
+            ],
+            "name": "mealplannerbackend",
+            "type": "package"
+          }
+        ],
+        "name": "example",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /api/auth/login"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/users/username/{username}"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/notifications/user/{id}"
+      },
+      {
+        "type": "route",
+        "name": "GET /api/images/user/{imageName}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username from users u1_0 where u1_0.username=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.user_id,r1_1.id,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.user_id,r1_0.id,r1_0.description,r1_0.image,r1_0.rating,r2_0.id,r2_0.image,r2_0.method,r2_0.rating,r2_0.time_to_cook,r2_0.title,u1_0.id,u1_0.creation_date,u1_0.experience,u1_0.image,u1_0.level,u1_0.name,u1_0.password,u1_0.title,u1_0.username,r2_0.video_link from reviews r1_0 left join recipes r2_0 on r2_0.id=r1_0.recipe_id left join users u1_0 on u1_0.id=r2_0.user_id where r1_0.user_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select r1_0.user_id,r1_0.id,r1_0.image,r1_0.method,r1_0.rating,r1_0.time_to_cook,r1_0.title,r1_0.video_link from recipes r1_0 where r1_0.user_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select a1_0.user_id,a1_1.id,a1_1.description,a1_1.image,a1_1.name from user_awards a1_0 join awards a1_1 on a1_1.id=a1_0.award_id where a1_0.user_id=?"
+      },
+      {
+        "type": "query",
+        "name": "select n1_0.id,n1_0.award_id,n1_0.notification_shown,n1_0.user_id from notifications n1_0 where n1_0.user_id=? and not(n1_0.notification_shown)"
+      }
+    ]
+  }
+]
