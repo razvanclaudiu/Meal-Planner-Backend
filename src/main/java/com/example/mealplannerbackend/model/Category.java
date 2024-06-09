@@ -17,16 +17,13 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private List<Recipe> recipes;
 
-    // Default constructor
     public Category() {
     }
 
-    // Parameterized constructor
     public Category(String name) {
         this.name = name;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -60,7 +57,6 @@ public class Category {
                 '}';
     }
 
-    // equals and hashCode methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

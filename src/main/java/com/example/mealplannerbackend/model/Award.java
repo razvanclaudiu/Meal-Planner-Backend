@@ -18,7 +18,6 @@ public class Award {
     @ManyToMany(mappedBy = "awards")
     private List<User> users;
 
-    // Constructors, Getters, and Setters...
 
     public Award() {
     }
@@ -29,7 +28,6 @@ public class Award {
         this.image = image;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

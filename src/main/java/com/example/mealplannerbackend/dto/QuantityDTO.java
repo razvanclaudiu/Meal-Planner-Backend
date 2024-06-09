@@ -9,7 +9,6 @@ public class QuantityDTO {
     private Long ingredientId;
     private String quantity;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

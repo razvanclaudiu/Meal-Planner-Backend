@@ -18,7 +18,6 @@ public class RecipeDTO {
     private List<Long> reviews_id;
     private List<Long> categories_id;
 
-    // Constructors, Getters, and Setters...
 
     public RecipeDTO() {
     }
@@ -37,7 +36,6 @@ public class RecipeDTO {
         this.categories_id = categories_id;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

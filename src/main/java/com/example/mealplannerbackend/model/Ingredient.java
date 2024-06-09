@@ -17,16 +17,13 @@ public class Ingredient {
     @ManyToMany(mappedBy = "ingredients")
     private List<Recipe> recipes;
 
-    // Default constructor
     public Ingredient() {
     }
 
-    // Parameterized constructor
     public Ingredient(String name) {
         this.name = name;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -51,7 +48,6 @@ public class Ingredient {
         this.recipes = recipes;
     }
 
-    // toString method
     @Override
     public String toString() {
         return "Ingredient{" +
@@ -60,7 +56,6 @@ public class Ingredient {
                 '}';
     }
 
-    // equals and hashCode methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

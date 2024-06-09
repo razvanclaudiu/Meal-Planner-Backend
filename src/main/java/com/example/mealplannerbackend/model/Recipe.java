@@ -42,8 +42,6 @@ public class Recipe {
     )
     private List<Category> categories;
 
-    // Constructors, Getters, and Setters...
-
     public Recipe() {
     }
 
@@ -60,7 +58,6 @@ public class Recipe {
         this.categories = categories;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

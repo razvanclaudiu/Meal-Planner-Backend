@@ -31,30 +31,23 @@ public class EmailService {
     @Async
     public void sendWelcomeEmail(User user) {
         try {
-            // Create a MimeMessage
             MimeMessage message = mailSender.createMimeMessage();
 
-            // Use the helper to set the properties of the message
             MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
 
-            // Create a Thymeleaf context and add variables
             Context context = new Context();
-            context.setVariable("recipientName", user.getName()); // You can pass actual user details here
+            context.setVariable("recipientName", user.getName());
             context.setVariable("welcomeMessage", "Welcome to Munchie!");
 
-            // Process the Thymeleaf template to generate the email content
             String html = templateEngine.process("welcome-email-template", context);
 
-            // Set the email attributes
             helper.setTo(user.getEmail());
             helper.setSubject("Welcome to Munchie");
             helper.setText(html, true);
-            helper.setFrom("munchie.application@gmail.com"); // Replace with your email address
+            helper.setFrom("munchie.application@gmail.com");
 
-            // Send the email
             mailSender.send(message);
         } catch (MessagingException e) {
-            // Handle the exception (log it, etc.)
             e.printStackTrace();
         }
     }

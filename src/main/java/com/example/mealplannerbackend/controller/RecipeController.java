@@ -87,8 +87,6 @@ public class RecipeController {
             @RequestParam(value = "categories", required = false) List<Long> filterCategories,
             @RequestParam(value = "ingredients", required = false) List<Long> filterIngredients) {
 
-        // Check if both filterCategories and filterIngredients are null or empty,
-        // if so, return all recipes
         if ((filterCategories == null || filterCategories.isEmpty()) &&
                 (filterIngredients == null || filterIngredients.isEmpty())) {
             return getAllRecipes();

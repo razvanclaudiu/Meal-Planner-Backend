@@ -54,24 +54,19 @@ public class ReviewService {
     }
 
     public ReviewDTO updateReview(Long id, ReviewDTO updatedReviewDTO) {
-        // Convert the updated DTO to an entity
         Review updatedReview = convertToEntity(updatedReviewDTO);
 
-        // Retrieve the existing review from the repository
         Review existingReview = reviewRepository.findById(id)
                 .orElseThrow(() -> new ReviewNotFoundException("Review with id " + id + " not found"));
 
-        // Update the fields of the existing review with the new values
         existingReview.setUser(updatedReview.getUser());
         existingReview.setRecipe(updatedReview.getRecipe());
         existingReview.setDescription(updatedReview.getDescription());
         existingReview.setRating(updatedReview.getRating());
         existingReview.setImage(updatedReview.getImage());
 
-        // Save the updated review
         Review savedReview = reviewRepository.save(existingReview);
 
-        // Convert the saved review entity back to DTO and return
         return convertToDto(savedReview);
     }
 
@@ -82,8 +77,8 @@ public class ReviewService {
     private ReviewDTO convertToDto(Review review) {
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setId(review.getId());
-        reviewDTO.setUser_id(review.getUser().getId()); // Change to User ID
-        reviewDTO.setRecipe_id(review.getRecipe().getId()); // Change to Recipe ID
+        reviewDTO.setUser_id(review.getUser().getId());
+        reviewDTO.setRecipe_id(review.getRecipe().getId());
         reviewDTO.setDescription(review.getDescription());
         reviewDTO.setRating(review.getRating());
         reviewDTO.setImage(review.getImage());

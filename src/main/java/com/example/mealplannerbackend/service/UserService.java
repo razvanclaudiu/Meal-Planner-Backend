@@ -59,24 +59,18 @@ public class UserService {
     }
 
     public UserDTO updateUser(Long id, UserDTO updatedUserDTO) {
-        // Convert the updated DTO to an entity
         User updatedUser = convertToEntity(updatedUserDTO);
 
-        // Retrieve the existing user from the repository
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
 
-        // Update the fields of the existing user with the new values
         existingUser.setUsername(updatedUser.getUsername());
         existingUser.setPassword(updatedUser.getPassword());
         existingUser.setLevel(updatedUser.getLevel());
         existingUser.setExperience(updatedUser.getExperience());
-        // Update other fields similarly...
 
-        // Save the updated user
         User savedUser = userRepository.save(existingUser);
 
-        // Convert the saved user entity back to DTO and return
         return convertToDto(savedUser);
     }
 
@@ -93,7 +87,6 @@ public class UserService {
         userDTO.setLevel(user.getLevel());
         userDTO.setExperience(user.getExperience());
 
-        // Extracting ids from related entities
         List<Long> reviewIds = user.getReviews().stream()
                 .map(Review::getId)
                 .collect(Collectors.toList());
@@ -126,7 +119,6 @@ public class UserService {
         user.setLevel(1);
         user.setExperience(0);
 
-        // Assuming reviews, recipes, and awards are managed separately
         List<Review> reviews = reviewRepository.findAllById(userDTO.getReviews_id());
         List<Recipe> recipes = recipeRepository.findAllById(userDTO.getRecipes_id());
         List<Award> awards = awardRepository.findAllById(userDTO.getAwards_id());

@@ -12,16 +12,15 @@ public class UserDTO {
     private String email;
     private int level;
 
-    private int experience; // Added experience parameter
-    private List<Long> reviews_id; // Changed to reviews_id
-    private List<Long> recipes_id; // Changed to recipes_id
-    private List<Long> awards_id; // Changed to awards_id
+    private int experience;
+    private List<Long> reviews_id;
+    private List<Long> recipes_id;
+    private List<Long> awards_id;
     private String name;
     private Date creationDate;
     private String image;
     private String title;
 
-    // Constructors, Getters, and Setters...
 
     public UserDTO() {
     }
@@ -41,7 +40,6 @@ public class UserDTO {
         this.title = title;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

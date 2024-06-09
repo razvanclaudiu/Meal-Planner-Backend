@@ -4,7 +4,6 @@ import com.example.mealplannerbackend.dto.AuthResponse;
 import com.example.mealplannerbackend.dto.LoginDTO;
 import com.example.mealplannerbackend.dto.OAuth2LoginDTO;
 import com.example.mealplannerbackend.dto.RegisterDTO;
-import com.example.mealplannerbackend.exceptions.UserNotFoundException;
 import com.example.mealplannerbackend.model.Award;
 import com.example.mealplannerbackend.model.Notification;
 import com.example.mealplannerbackend.model.Role;
@@ -15,19 +14,14 @@ import com.example.mealplannerbackend.repository.RoleRepository;
 import com.example.mealplannerbackend.repository.UserRepository;
 import com.example.mealplannerbackend.service.EmailService;
 import com.example.mealplannerbackend.service.GoogleTokenVerifier;
-import com.example.mealplannerbackend.service.UserService;
-import com.example.mealplannerbackend.utils.JwtAuthEntryPoint;
 import com.example.mealplannerbackend.utils.JwtProvider;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,10 +29,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -62,7 +54,7 @@ public class AuthController {
     private EmailService emailService;
 
     @Autowired
-    private ImageController imageController; // Inject ImageController
+    private ImageController imageController;
 
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, AwardRepository awardRepository, NotificationRepository notificationRepository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider, GoogleTokenVerifier googleTokenVerifier, ImageController imageController, EmailService emailService) {
         this.authenticationManager = authenticationManager;

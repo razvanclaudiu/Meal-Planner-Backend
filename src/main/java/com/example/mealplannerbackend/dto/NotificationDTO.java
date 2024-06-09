@@ -9,7 +9,6 @@ public class NotificationDTO {
     private Long userId;
     private Long awardId;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

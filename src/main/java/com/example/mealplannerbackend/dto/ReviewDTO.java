@@ -9,7 +9,6 @@ public class ReviewDTO {
     private int rating; // Out of 5
     private String image;
 
-    // Constructors, Getters, and Setters...
 
     public ReviewDTO() {
     }
@@ -23,7 +22,6 @@ public class ReviewDTO {
         this.image = image;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

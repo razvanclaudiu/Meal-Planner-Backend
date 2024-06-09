@@ -19,7 +19,6 @@ public class Notification {
     @Column(nullable = false)
     private Long awardId;
 
-    // Constructors
     public Notification() {
     }
 
@@ -29,7 +28,6 @@ public class Notification {
         this.awardId = awardId;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

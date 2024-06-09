@@ -69,32 +69,28 @@ public class RecipeService {
     }
 
     public RecipeDTO updateRecipe(Long id, RecipeDTO updatedRecipeDTO) {
-        // Retrieve the existing recipe from the repository
         Recipe existingRecipe = recipeRepository.findById(id)
                 .orElseThrow(() -> new RecipeNotFoundException("Recipe with id " + id + " not found"));
 
         var optionalUser = userRepository.findByUsername(updatedRecipeDTO.getUsername());
         User user = optionalUser.orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Update the fields of the existing recipe with the new values
         existingRecipe.setTitle(updatedRecipeDTO.getTitle());
         existingRecipe.setImage(updatedRecipeDTO.getImage());
-        existingRecipe.setMethod(updatedRecipeDTO.getMethod()); // Changed from getDescription
+        existingRecipe.setMethod(updatedRecipeDTO.getMethod());
         existingRecipe.setTimeToCook(updatedRecipeDTO.getTimeToCook());
         existingRecipe.setRating(updatedRecipeDTO.getRating());
-        existingRecipe.setUser(user); // Changed from getAuthor
+        existingRecipe.setUser(user);
         existingRecipe.setVideoLink(updatedRecipeDTO.getVideoLink());
 
         List<Ingredient> ingredients = ingredientRepository.findAllById(updatedRecipeDTO.getIngredients_id());
         List<Category> categories = categoryRepository.findAllById(updatedRecipeDTO.getCategories_id());
 
-        existingRecipe.setIngredients(ingredients); // Changed from getIngredients
+        existingRecipe.setIngredients(ingredients);
         existingRecipe.setCategories(categories);
 
-        // Save the updated recipe
         Recipe savedRecipe = recipeRepository.save(existingRecipe);
 
-        // Convert the saved recipe entity back to DTO and return
         return convertToDto(savedRecipe);
     }
 
@@ -163,7 +159,7 @@ public class RecipeService {
         recipeDTO.setMethod(recipe.getMethod());
         recipeDTO.setTimeToCook(recipe.getTimeToCook());
         recipeDTO.setRating(recipe.getRating());
-        recipeDTO.setUsername(recipe.getUser().getUsername()); // Assuming you want to get the username
+        recipeDTO.setUsername(recipe.getUser().getUsername());
         recipeDTO.setVideoLink(recipe.getVideoLink());
         recipeDTO.setIngredients_id(getIngredientIds(recipe));
         recipeDTO.setReviews_id(getReviewIds(recipe));
@@ -179,15 +175,11 @@ public class RecipeService {
         recipe.setMethod(recipeDTO.getMethod());
         recipe.setTimeToCook(recipeDTO.getTimeToCook());
         recipe.setRating(recipeDTO.getRating());
-        // Assuming you have a method to find User by username
-        System.out.println(recipeDTO.getUsername());
         var optionalUser = userRepository.findByUsername(recipeDTO.getUsername());
         User user = optionalUser.orElseThrow(() -> new RuntimeException("User not found"));
         recipe.setUser(user);
         recipe.setVideoLink(recipeDTO.getVideoLink());
         List<Ingredient> ingredients = new ArrayList<>();
-        System.out.println(recipeDTO.getIngredients_id());
-        System.out.println(recipeDTO.getCategories_id());
         if(recipeDTO.getIngredients_id() != null){
             for(Long ingredientId : recipeDTO.getIngredients_id()){
                 Ingredient ingredient = ingredientRepository.findById(ingredientId).orElse(null);
@@ -196,9 +188,7 @@ public class RecipeService {
                 }
             }
         }
-        System.out.println(ingredients);
         recipe.setIngredients(ingredients);
-        // Assuming you have a method to find Review by its ID
         List<Review> reviews = new ArrayList<>();
         if(recipeDTO.getReviews_id() != null) {
             for (Long reviewId : recipeDTO.getReviews_id()) {
@@ -218,7 +208,6 @@ public class RecipeService {
                 }
             }
         }
-        System.out.println(categories);
         recipe.setCategories(categories);
         return recipe;
     }
@@ -226,7 +215,6 @@ public class RecipeService {
     public List<RecipeDTO> filterRecipesByCategoriesAndIngredients(List<Long> filterCategories, List<Long> filterIngredients) {
         if ((filterCategories == null || filterCategories.isEmpty()) &&
                 (filterIngredients == null || filterIngredients.isEmpty())) {
-            // If both parameters are null or empty, return all recipes
             return getAllRecipes();
         }
 
@@ -234,13 +222,10 @@ public class RecipeService {
 
         if (filterCategories != null && !filterCategories.isEmpty() &&
                 filterIngredients != null && !filterIngredients.isEmpty()) {
-            // If both parameters are provided, filter by both categories and ingredients
             recipes = recipeRepository.findByCategoriesIdsAndIngredientsIds(filterCategories, filterIngredients, (long) filterCategories.size(), (long) filterIngredients.size());
         } else if (filterCategories != null && !filterCategories.isEmpty()) {
-            // If only categories are provided, filter by categories
             recipes = recipeRepository.findByCategoriesIds(filterCategories, (long) filterCategories.size());
         } else {
-            // If only ingredients are provided, filter by ingredients
             recipes = recipeRepository.findByIngredientsIds(filterIngredients, (long) filterIngredients.size());
         }
         return recipes.stream().map(this::convertToDto).collect(Collectors.toList());

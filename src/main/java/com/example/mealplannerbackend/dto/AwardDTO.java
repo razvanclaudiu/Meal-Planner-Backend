@@ -11,7 +11,6 @@ public class AwardDTO {
 
     private List<Long> users_id;
 
-    // Constructors, Getters, and Setters...
 
     public AwardDTO() {
     }
@@ -24,7 +23,6 @@ public class AwardDTO {
         this.users_id = users_id;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

@@ -19,10 +19,9 @@ public class Review {
     private Recipe recipe;
 
     private String description;
-    private int rating; // Out of 5
+    private int rating;
     private String image;
 
-    // Constructors, Getters, and Setters
 
     public Review() {
     }
@@ -35,7 +34,6 @@ public class Review {
         this.image = image;
     }
 
-    // Getters and Setters
 
     public Long getId() {
         return id;

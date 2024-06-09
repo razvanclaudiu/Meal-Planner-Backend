@@ -5,17 +5,14 @@ public class IngredientDTO {
     private Long id;
     private String name;
 
-    // Default constructor
     public IngredientDTO() {
     }
 
-    // Parameterized constructor
     public IngredientDTO(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

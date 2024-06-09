@@ -2,7 +2,6 @@ package com.example.mealplannerbackend.controller;
 
 import com.example.mealplannerbackend.dto.AwardDTO;
 import com.example.mealplannerbackend.service.AwardService;
-import com.example.mealplannerbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

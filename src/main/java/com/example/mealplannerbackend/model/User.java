@@ -41,7 +41,7 @@ public class User {
     private Date creationDate;
     private String image;
 
-    private String title; // Changed to String
+    private String title;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -49,7 +49,6 @@ public class User {
     private List<Role> roles = new ArrayList<>();
 
 
-    // Constructors, Getters, and Setters...
 
     public User() {
     }
@@ -69,7 +68,6 @@ public class User {
         this.roles = roles;
     }
 
-    // Getters and Setters...
 
     public Long getId() {
         return id;

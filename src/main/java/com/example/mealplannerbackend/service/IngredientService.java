@@ -41,20 +41,15 @@ public class IngredientService {
     }
 
     public IngredientDTO updateIngredient(Long id, IngredientDTO updatedIngredientDTO) {
-        // Convert the updated DTO to an entity
         Ingredient updatedIngredient = convertToEntity(updatedIngredientDTO);
 
-        // Retrieve the existing ingredient from the repository
         Ingredient existingIngredient = ingredientRepository.findById(id)
                 .orElseThrow(() -> new IngredientNotFoundException("Ingredient with id " + id + " not found"));
 
-        // Update the fields of the existing ingredient with the new values
         existingIngredient.setName(updatedIngredient.getName());
 
-        // Save the updated ingredient
         Ingredient savedIngredient = ingredientRepository.save(existingIngredient);
 
-        // Convert the saved ingredient entity back to DTO and return
         return convertToDto(savedIngredient);
     }
 

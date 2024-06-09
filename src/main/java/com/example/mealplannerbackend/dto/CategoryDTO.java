@@ -5,17 +5,14 @@ public class CategoryDTO {
     private Long id;
     private String name;
 
-    // Default constructor
     public CategoryDTO() {
     }
 
-    // Parameterized constructor
     public CategoryDTO(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

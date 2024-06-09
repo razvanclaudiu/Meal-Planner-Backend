@@ -37,20 +37,15 @@ public class CategoryService {
     }
 
     public CategoryDTO updateCategory(Long id, CategoryDTO updatedCategoryDTO) {
-        // Convert the updated DTO to an entity
         Category updatedCategory = convertToEntity(updatedCategoryDTO);
 
-        // Retrieve the existing category from the repository
         Category existingCategory = categoryRepository.findById(id)
                 .orElseThrow(() -> new CategoryNotFoundException("Category with id " + id + " not found"));
 
-        // Update the fields of the existing category with the new values
         existingCategory.setName(updatedCategory.getName());
 
-        // Save the updated category
         Category savedCategory = categoryRepository.save(existingCategory);
 
-        // Convert the saved category entity back to DTO and return
         return convertToDto(savedCategory);
     }
 

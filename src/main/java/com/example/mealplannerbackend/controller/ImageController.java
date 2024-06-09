@@ -50,12 +50,10 @@ public class ImageController {
         return uploadImage(reviewImageDirectory, request.getImageData(), request.getId(), "review");
     }
 
-    // Define a class to represent the request body
     public static class ImageUploadRequest {
         private String imageData;
         private String id;
 
-        // Getters and setters
         public String getImageData() {
             return imageData;
         }
@@ -100,7 +98,6 @@ public class ImageController {
 
             byte[] imageBytes = java.util.Base64.getDecoder().decode(base64Image);
 
-            // Generate a filename based on the entity type and ID
             String fileName;
             if ("user".equalsIgnoreCase(entityType)) {
                 fileName = "user_" + entityId + ".jpeg";

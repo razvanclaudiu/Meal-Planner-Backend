@@ -48,22 +48,17 @@ public class AwardService {
     }
 
     public AwardDTO updateAward(Long id, AwardDTO updatedAwardDTO) {
-        // Convert the updated DTO to an entity
         Award updatedAward = convertToEntity(updatedAwardDTO);
 
-        // Retrieve the existing award from the repository
         Award existingAward = awardRepository.findById(id)
                 .orElseThrow(() -> new AwardNotFoundException("Award with id " + id + " not found"));
 
-        // Update the fields of the existing award with the new values
         existingAward.setName(updatedAward.getName());
         existingAward.setDescription(updatedAward.getDescription());
         existingAward.setImage(updatedAward.getImage());
 
-        // Save the updated award
         Award savedAward = awardRepository.save(existingAward);
 
-        // Convert the saved award entity back to DTO and return
         return convertToDto(savedAward);
     }
 
@@ -78,7 +73,6 @@ public class AwardService {
         awardDTO.setDescription(award.getDescription());
         awardDTO.setImage(award.getImage());
 
-        // Extracting user IDs from Award's users
         List<Long> userIds = new ArrayList<>();
         for (User user : award.getUsers()) {
             userIds.add(user.getId());
@@ -95,7 +89,6 @@ public class AwardService {
         award.setDescription(awardDTO.getDescription());
         award.setImage(awardDTO.getImage());
 
-        // Assuming you have a method to find User by ID
         List<User> users = new ArrayList<>();
         for (Long userId : awardDTO.getUsers_id()) {
             User user = userRepository.findById(userId).orElse(null);
@@ -182,7 +175,6 @@ public class AwardService {
         userRepository.save(user);
     }
 
-    // Method to check and award "Welcome Aboard" achievement
 
     // Method to check and award "First Taste" achievement
     public void checkAndAwardFirstTaste(User user) {
@@ -280,7 +272,6 @@ public class AwardService {
         LocalDate creationDate = convertToLocalDate(user.getCreationDate());
         Period period = Period.between(creationDate, now);
 
-        // Checking if the user has been a member for at least 6 months
         if (period.getYears() > 0 || (period.getYears() == 0 && period.getMonths() >= 6)) {
             awardAchievement(user, "Seasoned Member");
         }
@@ -292,7 +283,6 @@ public class AwardService {
         LocalDate creationDate = convertToLocalDate(user.getCreationDate());
         Period period = Period.between(creationDate, now);
 
-        // Check if a full year has passed
         if (period.getYears() >= 1) {
             awardAchievement(user, "Veteran Cook");
         }
@@ -303,12 +293,10 @@ public class AwardService {
         List<Category> allCategories = categoryRepository.findAll();
         List<Recipe> userRecipes = user.getRecipes();
 
-        // Collect categories from the user's recipes
         Set<Category> userCategories = userRecipes.stream()
                 .flatMap(recipe -> recipe.getCategories().stream())
                 .collect(Collectors.toSet());
 
-        // Check if the user has interacted with all categories
         if (userCategories.containsAll(allCategories)) {
             awardAchievement(user, "Culinary Explorer");
         }
@@ -363,7 +351,7 @@ public class AwardService {
         } else if (level >= 1) {
             int index = (level - 1) / 12;
             if (index >= TITLES.length) {
-                index = TITLES.length - 1; // Ensure index is within the array bounds
+                index = TITLES.length - 1;
             }
             title = TITLES[index];
         } else {
