@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to Meal Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        ul {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'Hello, ' + ${recipientName} + '!'">Hello, User!</h1>
+    <p th:text="${welcomeMessage}">Welcome to Munchie! We are excited to have you on board and look forward to helping you plan your meals effortlessly.</p>
+    <p>With Munchie, you can enjoy a wide range of features designed to enhance your culinary experience:</p>
+    <ul>
+        <li>Explore an extensive collection of delicious recipes</li>
+        <li>Share your own recipes and manage them with ease</li>
+        <li>Contribute to the community by reviewing and rating others' recipes</li>
+        <li>Earn levels and titles by engaging with the community and sharing your culinary creations</li>
+        <li>Unlock and display badges by completing fun challenges</li>
+        <li>See how you rank among other users on the leaderboard</li>
+    </ul>
+    <p>We believe that healthy eating should be accessible and convenient for everyone. Our goal is to provide you with the tools and support you need to achieve your dietary goals.</p>
+    <p>If you have any questions or need assistance, please do not hesitate to contact our support team at munchie.application@gmail.com. We are here to help!</p>
+    <p>Thank you for choosing Meal Planner. We are thrilled to have you with us.</p>
+    <p>Best regards,</p>
+    <p>The Munchie Team</p>
+</div>
+</body>
+</html>

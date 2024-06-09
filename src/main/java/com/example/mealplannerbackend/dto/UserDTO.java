@@ -8,7 +8,10 @@ public class UserDTO {
     private Long id;
     private String username;
     private String password;
+
+    private String email;
     private int level;
+
     private int experience; // Added experience parameter
     private List<Long> reviews_id; // Changed to reviews_id
     private List<Long> recipes_id; // Changed to recipes_id
@@ -134,5 +137,13 @@ public class UserDTO {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

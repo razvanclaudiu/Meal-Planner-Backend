@@ -89,6 +89,7 @@ public class UserService {
         userDTO.setId(user.getId());
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
+        userDTO.setEmail(user.getEmail());
         userDTO.setLevel(user.getLevel());
         userDTO.setExperience(user.getExperience());
 
@@ -121,6 +122,7 @@ public class UserService {
         user.setId(userDTO.getId());
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
+        user.setEmail(userDTO.getEmail());
         user.setLevel(1);
         user.setExperience(0);
 

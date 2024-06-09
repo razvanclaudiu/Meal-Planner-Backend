@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: meal-planner-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/meal.planner
+    username: postgres
+    password: razvan
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 212995299860-o09tlc21bi1f5dajkoppptltgvmc91va.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+            redirect-uri: "http://localhost"
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: munchie.application@gmail.com
+    password: rjzeqspcdwjfpjsl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+
+jwt:
+  secret: f23dcfbb7c50130f12adb2c68a5fef5b4f439c75068e3ff9eb7f1787d8e8797c
+  expiration: 6000000
+
+

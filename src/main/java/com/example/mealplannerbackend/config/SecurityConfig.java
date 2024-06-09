@@ -48,6 +48,9 @@ public class SecurityConfig  {
                     .requestMatchers("/api/auth/**").permitAll()
                     .requestMatchers((HttpMethod.GET)).permitAll()
                .anyRequest().authenticated()
+                    .and()
+                    .oauth2Login()
+                    .defaultSuccessUrl("/home", true)
                .and()
                .httpBasic();
 
